@@ -1,0 +1,9 @@
+const Card = () => {
+  return (
+    <>
+      <p>Test</p>
+    </>
+  );
+};
+
+export default Card;
