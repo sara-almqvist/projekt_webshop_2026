@@ -1,6 +1,7 @@
 import Nav from './components/Nav';
 import './App.css';
 import Search from './components/Search';
+import ProductDetails from './components/ProductDetails';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Nav />
       <h1>Webshop</h1>
       <Search />
+      <ProductDetails />
     </>
   );
 }
