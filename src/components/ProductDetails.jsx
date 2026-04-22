@@ -11,7 +11,6 @@ const ProductDetails = ({ id = 1 }) => {
 
   const handleClick = () => {
     console.log(`Du har köpt ${orderQuantity} av produkten!`);
-    setOrderQuantity(1);
     setConfirmation(true);
   };
 
