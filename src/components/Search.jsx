@@ -57,7 +57,7 @@ const Search = () => {
             key={item.id}
             id={item.id}
             title={item.title}
-            src={item.images[0]}
+            src={item.thumbnail}
             price={item.price}
           />
         ))}
