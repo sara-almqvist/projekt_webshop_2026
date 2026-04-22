@@ -36,7 +36,7 @@ const ProductDetails = ({ id = 1 }) => {
 
   return product ? (
     confirmation ? (
-      <p>Tack för din beställning!</p>
+      <p>{`Du har lagt ${orderQuantity} st av ${product.title} i kundvagnen!`}</p>
     ) : (
       <div className="grid grid-cols-2 grid-rows-[20%,35%,30%,15%] place-items-center">
         <h3 className="col-span-2">{product.title}</h3>
