@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+input {
+  padding: 15px;
+  margin: 10px;
+  width: 300px;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}

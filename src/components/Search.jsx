@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Card from './Card';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,7 +33,7 @@ const Search = () => {
       } catch (error) {
         console.error('Något gick fel', error);
       }
-    }, 3000);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
@@ -42,18 +43,24 @@ const Search = () => {
 
   return (
     <>
-      <h2>Vad behöver du idag?</h2>
+      <h2 className="text-blue-600">Vad behöver du idag?</h2>
       <input
         type="text"
         placeholder="Skriv för att söka ..."
         value={searchTerm}
         onChange={handleChange}
       />
-      <ul>
+      <div>
         {products.map((item) => (
-          <li key={item.id}>{item.title}</li>
+          <Card
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            src={item.images[0]}
+            price={item.price}
+          />
         ))}
-      </ul>
+      </div>
     </>
   );
 };
