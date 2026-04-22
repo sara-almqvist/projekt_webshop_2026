@@ -43,14 +43,15 @@ const Search = () => {
 
   return (
     <>
-      <h2 className="text-blue-600">Vad behöver du idag?</h2>
+      <h2>Vad behöver du idag?</h2>
       <input
         type="text"
         placeholder="Skriv för att söka ..."
         value={searchTerm}
         onChange={handleChange}
+        className="bg-gray-100 text-green-900"
       />
-      <div>
+      <div className="flex flex-wrap gap-4 justify-center items-center">
         {products.map((item) => (
           <Card
             key={item.id}
