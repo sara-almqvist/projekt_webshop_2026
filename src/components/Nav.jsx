@@ -5,10 +5,19 @@ const Nav = () => {
   return (
     <>
       <ul className={styles.navContainer}>
-        <li className={styles.list}>Hem</li>
+        <Link to={'/'} className={styles.list}>
+          Hem
+        </Link>
         <li className={styles.list}>Kategorier</li>
-        <li className={styles.list}>Om oss</li>
-        <li className={styles.list}>Till kassan</li>
+        <Link to={'/about'} className={styles.list}>
+          Om oss
+        </Link>
+        <Link to={'/checkout'} className={styles.list}>
+          Till kassan
+        </Link>
+        <Link to={'/test'} className={styles.list}>
+          Testsida
+        </Link>
       </ul>
     </>
   );

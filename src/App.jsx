@@ -9,6 +9,7 @@ import Cart from './views/Cart';
 import Checkout from './views/Checkout';
 import About from './views/About';
 import WrongPath from './views/Wrongpath';
+import FetchCategory from './components/FetchCategory';
 
 function App() {
   return (
@@ -47,7 +48,22 @@ function App() {
               </LayoutShop>
             }
           />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route
+            path="/checkout"
+            element={
+              <LayoutShop>
+                <Checkout />
+              </LayoutShop>
+            }
+          />
+          <Route
+            path="/test"
+            element={
+              <LayoutShop>
+                <FetchCategory />
+              </LayoutShop>
+            }
+          />
           <Route path="/*" element={<WrongPath />} />
         </Routes>
       </BrowserRouter>
