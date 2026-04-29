@@ -8,7 +8,9 @@ const Nav = () => {
         <Link to={'/'} className={styles.list}>
           Hem
         </Link>
-        <li className={styles.list}>Kategorier</li>
+        <Link to={'/categories'} className={styles.list}>
+          Kategorier
+        </Link>
         <Link to={'/about'} className={styles.list}>
           Om oss
         </Link>

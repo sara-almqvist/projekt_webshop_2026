@@ -1,15 +1,14 @@
-import Nav from './components/Nav';
 import LayoutShop from './views/LayoutShop';
 import Home from './views/Home';
 import './App.css';
-import Search from './components/Search';
-import ProductDetails from './components/ProductDetails';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './views/Cart';
 import Checkout from './views/Checkout';
 import About from './views/About';
 import WrongPath from './views/Wrongpath';
 import FetchCategory from './components/FetchCategory';
+import Categories from './views/Categories';
+import ProductPage from './views/ProductPage';
 
 function App() {
   return (
@@ -33,10 +32,18 @@ function App() {
             }
           />
           <Route
-            path="/item:id"
+            path="/categories"
             element={
               <LayoutShop>
-                <ProductDetails />
+                <Categories />
+              </LayoutShop>
+            }
+          />
+          <Route
+            path="/productpage/:id"
+            element={
+              <LayoutShop>
+                <ProductPage />
               </LayoutShop>
             }
           />
@@ -60,7 +67,7 @@ function App() {
             path="/test"
             element={
               <LayoutShop>
-                <FetchCategory />
+                <ProductPage />
               </LayoutShop>
             }
           />

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Card from './Card';
+import ProductList from './ProductList';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -51,17 +51,7 @@ const Search = () => {
         onChange={handleChange}
         className="bg-gray-100 text-green-900"
       />
-      <div className="flex flex-wrap gap-4 justify-center items-center">
-        {products.map((item) => (
-          <Card
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            src={item.thumbnail}
-            price={item.price}
-          />
-        ))}
-      </div>
+      <ProductList data={products} />
     </>
   );
 };

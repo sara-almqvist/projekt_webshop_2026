@@ -1,4 +1,3 @@
-import ProductDetails from '../components/ProductDetails';
 import Search from '../components/Search';
 
 const Home = () => {
@@ -6,7 +5,6 @@ const Home = () => {
     <>
       <h1>Webshop</h1>
       <Search />
-      <ProductDetails />
     </>
   );
 };
