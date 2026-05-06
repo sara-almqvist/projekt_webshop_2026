@@ -14,6 +14,7 @@ const ProductDetails = () => {
   };
 
   const handleClick = () => {
+    setProduct(() => Object.assign(product, { quantity: orderQuantity }));
     addToCart(product);
     setConfirmation(true);
   };

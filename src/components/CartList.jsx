@@ -1,0 +1,26 @@
+import Button from './Button';
+import CartCard from './CartCard';
+import useCart from './useCart';
+
+const CartList = ({ products }) => {
+  const { removeFromCart, clearCart } = useCart();
+  return (
+    <>
+      <h2>Test</h2>
+      {products.map((product) => (
+        <CartCard
+          key={product.id}
+          id={product.id}
+          title={product.title}
+          src={product.thumbnail}
+          price={product.price}
+          quantity={product.quantity}
+          removeFunction={() => removeFromCart(product.id)}
+        />
+      ))}
+      <Button text="Ta bort allt" action={clearCart} />
+    </>
+  );
+};
+
+export default CartList;
