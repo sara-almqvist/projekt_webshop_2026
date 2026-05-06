@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import useCart from './useCart';
 
-const ProductDetails = ({ id = 1 }) => {
+const ProductDetails = () => {
+  const { id } = useParams();
+  const { addToCart } = useCart();
   const [product, setProduct] = useState('');
   const [orderQuantity, setOrderQuantity] = useState(1);
   const [confirmation, setConfirmation] = useState(false);
@@ -10,7 +14,7 @@ const ProductDetails = ({ id = 1 }) => {
   };
 
   const handleClick = () => {
-    console.log(`Du har köpt ${orderQuantity} av produkten!`);
+    addToCart(product);
     setConfirmation(true);
   };
 
@@ -28,21 +32,25 @@ const ProductDetails = ({ id = 1 }) => {
       } catch (error) {
         console.log('Fel vid hämtning', error);
       }
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [id]);
 
   return product ? (
     confirmation ? (
-      <p>{`Du har lagt ${orderQuantity} st av ${product.title} i kundvagnen!`}</p>
+      <p>
+        {`Du har lagt ${orderQuantity} st av ${product.title} i kundvagnen!`}
+        <Link to={'/categories'}>Handla vidare</Link>
+        <Link to={'/checkout'}>Till kassan</Link>
+      </p>
     ) : (
       <div className="grid grid-cols-2 grid-rows-[20%,35%,30%,15%] place-items-center">
-        <h3 className="col-span-2">{product.title}</h3>
+        <h3 className="col-span-2 text-4xl">{product.title}</h3>
         <img src={product.images[0]} className="w-48 col-span-2 row-start-2" />
         <p className="row-start-3 col-span-2">{product.description}</p>
         <p className="col-start-1 row-start-4">{product.price} kr</p>
-        <label className="">
+        <label className="bg-green-100">
           Ange önskat antal:
           <input
             id="quantity"
@@ -60,6 +68,9 @@ const ProductDetails = ({ id = 1 }) => {
             Lägg i kundvagn
           </button>
         </label>
+        <Link to={'/'} className="bg-purple-200 hover:bg-purple-400 p-4">
+          Tillbaka
+        </Link>
       </div>
     )
   ) : (

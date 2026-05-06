@@ -1,6 +1,9 @@
 import Card from './Card';
+import useCart from './useCart';
 
 const ProductList = ({ data }) => {
+  const { addToCart } = useCart();
+
   return (
     <>
       <div

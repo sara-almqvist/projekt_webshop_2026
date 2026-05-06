@@ -1,4 +1,6 @@
-const Card = ({ id, title, src, price }) => {
+import { Link } from 'react-router-dom';
+
+const Card = ({ id, title, src, price, handleClick }) => {
   return (
     <>
       <div
@@ -8,9 +10,13 @@ const Card = ({ id, title, src, price }) => {
         <h3 className="text-purple-500 font-bold text-xl">{title}</h3>
         <img src={src} className="max-w-2xs" />
         <p>{price} kr</p>
-        <button className="bg-gray-500 p-2 rounded-full text-white font-bold hover:bg-gray-600 shadow-xl shadow-grey-500/50">
+        <button
+          className="bg-gray-500 p-2 rounded-full text-white font-bold hover:bg-gray-600 shadow-xl shadow-grey-500/50"
+          onClick={handleClick}
+        >
           Lägg i kundvagn
         </button>
+        <Link to={`/productpage/${id}`}>Visa detaljer</Link>
       </div>
     </>
   );
