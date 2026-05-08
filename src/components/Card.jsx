@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from './Button';
 
-const Card = ({ id, title, src, price }) => {
+const Card = ({ id, title, src, price, handleClick }) => {
   return (
     <>
       <div
@@ -11,10 +11,7 @@ const Card = ({ id, title, src, price }) => {
         <h3 className="text-purple-500 font-bold text-xl">{title}</h3>
         <img src={src} className="max-w-2xs" />
         <p>{price} kr</p>
-        <Button
-          text="Lägg i kundvagn"
-          action={() => console.log('Varan ska läggas i cart')}
-        />
+        <Button text="Lägg i kundvagn" action={handleClick} />
         <Link to={`/productpage/${id}`}>Visa detaljer</Link>
       </div>
     </>
