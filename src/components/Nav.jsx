@@ -22,7 +22,9 @@ const Nav = () => {
         <Link to={'/test/1'} className={styles.list}>
           Testsida
         </Link>
-        <p style={{ alignSelf: 'center' }}>{cart.length}</p>
+        <Link to={'/cart'} className={styles.list}>
+          <p style={{ alignSelf: 'center' }}>{cart.length}</p>
+        </Link>
       </ul>
     </>
   );
