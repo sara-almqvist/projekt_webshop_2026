@@ -1,7 +1,16 @@
 import { Link } from 'react-router-dom';
 import Button from './Button';
 
-const CartCard = ({ id, title, src, price, quantity, removeFunction }) => {
+const CartCard = ({
+  id,
+  title,
+  src,
+  price,
+  quantity,
+  removeFunction,
+  addOne,
+  removeOne,
+}) => {
   return (
     <>
       <div
@@ -13,8 +22,10 @@ const CartCard = ({ id, title, src, price, quantity, removeFunction }) => {
           <img src={src} className="max-w-1/3" />
         </Link>
         <p>{price} kr</p>
+        <Button text="-" action={quantity === 1 ? removeFunction : removeOne} />
         <p>{quantity} st</p>
-        <p>Totalt: {price * quantity} kr</p>
+        <Button text="+" action={addOne} />
+        <p>Totalt: {(price * quantity).toFixed(2)} kr</p>
         <Button text="Ta bort" action={removeFunction} />
       </div>
     </>

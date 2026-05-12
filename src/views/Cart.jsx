@@ -11,10 +11,12 @@ const Cart = () => {
         <>
           <CartList products={cart} />
           <div className="text-red-500">
-            Att betala:{' '}
-            {cart.reduce((tot, obj) => {
-              return tot + obj.quantity * obj.price;
-            }, 0)}{' '}
+            Att betala:
+            {' ' +
+              cart.reduce((tot, obj) => {
+                return tot + obj.quantity * obj.price;
+              }, 0) +
+              ' '}
             kr
           </div>
         </>
@@ -22,7 +24,7 @@ const Cart = () => {
         <>
           <p>Kundvagnen är tom</p>
           <br />
-          <Link to={'/categories'}>Här hittar du hela vårt utbud!</Link>
+          <Link to={'/categories'}>Här hittar du något att fylla den med!</Link>
           <br />
         </>
       )}

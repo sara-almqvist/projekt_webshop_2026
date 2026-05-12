@@ -3,7 +3,7 @@ import CartCard from './CartCard';
 import useCart from './useCart';
 
 const CartList = ({ products }) => {
-  const { removeFromCart, clearCart } = useCart();
+  const { removeFromCart, clearCart, increment, decrement } = useCart();
   return (
     <>
       <h2>Test</h2>
@@ -16,6 +16,8 @@ const CartList = ({ products }) => {
           price={product.price}
           quantity={product.quantity}
           removeFunction={() => removeFromCart(product.id)}
+          addOne={() => increment(product.id)}
+          removeOne={() => decrement(product.id)}
         />
       ))}
       <Button text="Ta bort allt" action={clearCart} />

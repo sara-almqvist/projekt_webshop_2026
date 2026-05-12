@@ -4,19 +4,26 @@ import useCart from './useCart';
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const { addToCart } = useCart();
+  const { cart, addToCart, addNewQuantity } = useCart();
   const [product, setProduct] = useState('');
   const [orderQuantity, setOrderQuantity] = useState(1);
   const [confirmation, setConfirmation] = useState(false);
 
   const handleChange = ({ target }) => {
-    setOrderQuantity(target.value);
+    setOrderQuantity(parseInt(target.value));
   };
 
   const handleClick = () => {
-    setProduct(() => Object.assign(product, { quantity: orderQuantity }));
-    addToCart(product);
-    setConfirmation(true);
+    if (cart.some((obj) => obj.id === product.id)) {
+      console.log('Finns redan i kundvagnen');
+      const quantityInCart = cart.find((obj) => obj.id === product.id).quantity;
+      addNewQuantity(product.id, quantityInCart + orderQuantity);
+      setConfirmation(true);
+    } else {
+      setProduct(() => Object.assign(product, { quantity: orderQuantity }));
+      addToCart(product);
+      setConfirmation(true);
+    }
   };
 
   useEffect(() => {
@@ -29,7 +36,6 @@ const ProductDetails = () => {
 
         const data = await res.json();
         setProduct(data);
-        console.log(data);
       } catch (error) {
         console.log('Fel vid hämtning', error);
       }
