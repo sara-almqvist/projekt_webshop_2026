@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import CartList from '../components/CartList.jsx';
 import useCart from '../components/useCart.js';
+import TotalSum from '../components/TotalSum.jsx';
 
 const Cart = () => {
   const { cart } = useCart();
@@ -10,15 +11,13 @@ const Cart = () => {
       {cart.length > 0 ? (
         <>
           <CartList products={cart} />
-          <div className="text-red-500">
-            Att betala:
-            {' ' +
-              cart.reduce((tot, obj) => {
-                return tot + obj.quantity * obj.price;
-              }, 0) +
-              ' '}
-            kr
-          </div>
+          <TotalSum />
+          <Link
+            to={'/checkout'}
+            className="bg-blue-300 text-black hover:bg-blue-500"
+          >
+            Till kassan
+          </Link>
         </>
       ) : (
         <>

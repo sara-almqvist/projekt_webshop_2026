@@ -23,9 +23,9 @@ const OrderForm = () => {
 
   return (
     <>
-      <form className="border-solid border-red-100" onSubmit={handleSubmit}>
+      <form className="flex flex-col flex-wrap" onSubmit={handleSubmit}>
         <input
-          className="border-solid border-black text-blue-500"
+          className="border-solid border-black text-blue-500 bg-green-500"
           placeholder="Förnamn"
           value={form.firstName}
           name="firstName"

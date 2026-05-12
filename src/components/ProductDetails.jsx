@@ -15,7 +15,6 @@ const ProductDetails = () => {
 
   const handleClick = () => {
     if (cart.some((obj) => obj.id === product.id)) {
-      console.log('Finns redan i kundvagnen');
       const quantityInCart = cart.find((obj) => obj.id === product.id).quantity;
       addNewQuantity(product.id, quantityInCart + orderQuantity);
       setConfirmation(true);

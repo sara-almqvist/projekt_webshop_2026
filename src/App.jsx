@@ -9,6 +9,7 @@ import WrongPath from './views/Wrongpath';
 import Categories from './views/Categories';
 import ProductPage from './views/ProductPage';
 import CartProvider from './components/CartProvider';
+import OrderConfirmation from './views/OrderConfirmation';
 
 function App() {
   return (
@@ -69,6 +70,14 @@ function App() {
               element={
                 <LayoutShop>
                   <Cart />
+                </LayoutShop>
+              }
+            />
+            <Route
+              path="/thanks"
+              element={
+                <LayoutShop>
+                  <OrderConfirmation />
                 </LayoutShop>
               }
             />

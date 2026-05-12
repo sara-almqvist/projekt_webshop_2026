@@ -3,10 +3,10 @@ import CartCard from './CartCard';
 import useCart from './useCart';
 
 const CartList = ({ products }) => {
-  const { removeFromCart, clearCart, increment, decrement } = useCart();
+  const { cart, removeFromCart, clearCart, increment, decrement } = useCart();
+
   return (
     <>
-      <h2>Test</h2>
       {products.map((product) => (
         <CartCard
           key={product.id}
@@ -20,7 +20,7 @@ const CartList = ({ products }) => {
           removeOne={() => decrement(product.id)}
         />
       ))}
-      <Button text="Ta bort allt" action={clearCart} />
+      {cart.length > 0 && <Button text="Ta bort allt" action={clearCart} />}
     </>
   );
 };
