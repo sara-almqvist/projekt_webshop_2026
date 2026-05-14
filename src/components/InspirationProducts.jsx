@@ -26,7 +26,9 @@ const InspirationProducts = () => {
 
   return (
     <>
-      <h2 className="my-4">Dessa produkter är populära just nu</h2>
+      <h2 className="text-[#ed6b35] text-xl font-normal">
+        Dessa produkter är populära just nu
+      </h2>
       <ProductList data={products} />
     </>
   );

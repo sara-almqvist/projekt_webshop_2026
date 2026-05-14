@@ -48,24 +48,26 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
 
   return (
     <>
-      <h2>{title}</h2>
+      <h2 className="text-[#ed6b35] font-medium text-3xl">{title}</h2>
       <input
         type="text"
         placeholder="Skriv för att söka ..."
         value={searchTerm}
         onChange={handleChange}
-        className="bg-gray-100 text-green-900"
+        className="bg-gray-100 text-[#db4e14]"
       />
       {products.length > 0 ? (
         <ProductList data={products} />
       ) : (
         isSearched && (
           <>
-            <p>
+            <p className="text-lg text-[#32033a]">
               Tyvärr hittar vi inte vad du söker efter. Testa att söka med ett
               annat ord eller stavning.
             </p>
-            <Link to={'/categories'}>Eller kolla in våra kategorier</Link>
+            <Link to={'/categories'} className="text-lg text-[#32033a]">
+              Eller kolla in våra kategorier
+            </Link>
           </>
         )
       )}
