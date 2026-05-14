@@ -19,7 +19,10 @@ const ProductDetails = () => {
       addNewQuantity(product.id, quantityInCart + orderQuantity);
       setConfirmation(true);
     } else {
-      setProduct(() => Object.assign(product, { quantity: orderQuantity }));
+      const productWithQuantity = Object.assign(product, {
+        quantity: orderQuantity,
+      });
+      setProduct(productWithQuantity);
       addToCart(product);
       setConfirmation(true);
     }

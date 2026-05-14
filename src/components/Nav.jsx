@@ -19,9 +19,6 @@ const Nav = () => {
         <Link to={'/checkout'} className={styles.list}>
           Till kassan
         </Link>
-        <Link to={'/test/1'} className={styles.list}>
-          Testsida
-        </Link>
         <Link to={'/cart'} className={styles.list}>
           <p style={{ alignSelf: 'center' }}>{cart.length}</p>
         </Link>

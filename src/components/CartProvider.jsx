@@ -2,20 +2,38 @@ import { useState } from 'react';
 import CartContext from '../contexts/CartContext.js';
 
 function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+  let checkLocal = JSON.parse(localStorage.getItem('cart'));
+  let status;
+  if (checkLocal) {
+    status = checkLocal;
+  } else {
+    status = [];
+  }
+
+  const [cart, setCart] = useState(status);
+
+  const storeLocal = () => localStorage.setItem('cart', JSON.stringify(cart));
 
   const addToCart = (product) => {
     if (cart.some((obj) => obj.id === product.id)) {
       increment(product.id);
     } else {
       setCart([...cart, product]);
+      localStorage.setItem('cart', JSON.stringify([...cart, product]));
     }
   };
 
-  const clearCart = () => setCart([]);
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem('cart');
+  };
 
   const removeFromCart = (productId) => {
     setCart(cart.filter((obj) => obj.id !== productId));
+    localStorage.setItem(
+      'cart',
+      JSON.stringify(cart.filter((obj) => obj.id !== productId))
+    );
   };
 
   const increment = (productId) => {
@@ -23,6 +41,7 @@ function CartProvider({ children }) {
     const restOfCart = cart.filter((obj) => obj.id !== productId);
     productToChange[0].quantity += 1;
     setCart([...restOfCart, ...productToChange]);
+    storeLocal();
   };
 
   const decrement = (productId) => {
@@ -30,6 +49,7 @@ function CartProvider({ children }) {
     const restOfCart = cart.filter((obj) => obj.id !== productId);
     productToChange[0].quantity -= 1;
     setCart([...restOfCart, ...productToChange]);
+    storeLocal();
   };
 
   const addNewQuantity = (productId, newQuantity) => {
@@ -37,6 +57,7 @@ function CartProvider({ children }) {
     const restOfCart = cart.filter((obj) => obj.id !== productId);
     productToChange[0].quantity = newQuantity;
     setCart([...restOfCart, ...productToChange]);
+    storeLocal();
   };
 
   return (

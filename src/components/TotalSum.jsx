@@ -7,9 +7,11 @@ const TotalSum = () => {
     <div className="text-red-500">
       Att betala:
       {' ' +
-        cart.reduce((tot, obj) => {
-          return tot + obj.quantity * obj.price;
-        }, 0) +
+        cart
+          .reduce((tot, obj) => {
+            return tot + obj.quantity * obj.price;
+          }, 0)
+          .toFixed(2) +
         ' '}
       kr
     </div>

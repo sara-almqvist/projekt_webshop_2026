@@ -1,15 +1,9 @@
 import { useState } from 'react';
+import useUser from '../hooks/useUser';
 
-const OrderForm = () => {
-  const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    address: '',
-    postCode: '',
-    city: '',
-  });
+const OrderForm = ({ modalClose }) => {
+  const { user, setUser } = useUser();
+  const [form, setForm] = useState(user);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -18,7 +12,12 @@ const OrderForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Tack för din order ${form.firstName} ${form.lastName}!`);
+    console.log(`Du loggar in som ${form.firstName} ${form.lastName}!`);
+    setUser(form);
+    localStorage.setItem('user', JSON.stringify(form));
+    if (modalClose) {
+      modalClose();
+    }
   };
 
   return (
