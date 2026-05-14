@@ -6,7 +6,7 @@ const Home = () => {
   const { isSearched } = useSearch();
   return (
     <>
-      <h1>Webshop</h1>
+      <h1>Välkommen</h1>
       <Search />
       {!isSearched && <InspirationProducts />}
     </>

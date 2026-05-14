@@ -3,7 +3,7 @@ import ProductList from './ProductList';
 import useSearch from '../hooks/useSearch';
 import { Link } from 'react-router-dom';
 
-const Search = () => {
+const Search = ({ title = 'Vad behöver du idag?' }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [products, setProducts] = useState([]);
   const [isFetched, setIsFetched] = useState(false); //för att undvika anrop vid omladdning eller tomt sökfält
@@ -48,7 +48,7 @@ const Search = () => {
 
   return (
     <>
-      <h2>Vad behöver du idag?</h2>
+      <h2>{title}</h2>
       <input
         type="text"
         placeholder="Skriv för att söka ..."

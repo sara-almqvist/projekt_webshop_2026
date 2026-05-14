@@ -4,19 +4,21 @@
   flex-direction: row;
   gap: 10px;
   justify-content: space-around;
-  color: blueviolet;
+  color: #ed6b45;
   font-weight: 600;
-  background-color: rgb(185, 242, 188);
+  background-color: #32033a;
   padding: 10px;
 }
 
 .list {
   letter-spacing: 1px;
   padding: 10px;
+  max-width: 200px;
+  font-size: 28px;
 }
 
 .list:hover {
-  border: 2px solid blueviolet;
+  border: 2px solid #db4e14;
   font-weight: 800;
   cursor: pointer;
 }

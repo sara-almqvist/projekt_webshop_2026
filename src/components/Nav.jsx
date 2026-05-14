@@ -1,9 +1,8 @@
 import styles from './Nav.module.css';
 import { Link } from 'react-router-dom';
-import useCart from './useCart';
+import CartSymbol from './CartSymbol';
 
 const Nav = () => {
-  const { cart } = useCart();
   return (
     <>
       <ul className={styles.navContainer}>
@@ -18,9 +17,6 @@ const Nav = () => {
         </Link>
         <Link to={'/checkout'} className={styles.list}>
           Till kassan
-        </Link>
-        <Link to={'/cart'} className={styles.list}>
-          <p style={{ alignSelf: 'center' }}>{cart.length}</p>
         </Link>
       </ul>
     </>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Search from '../components/Search';
 import ProductList from '../components/ProductList';
 import Button from '../components/Button';
+import CategoryButtons from '../components/CategoryButtons';
 
 const Categories = () => {
   const [category, setCategory] = useState('mens-watches');
@@ -40,18 +41,9 @@ const Categories = () => {
 
   return (
     <>
-      <h2>Välj kategori</h2>
-      <button value={'sunglasses'} onClick={handleClick}>
-        Solglasögon
-      </button>
-      <button value={'beauty'} onClick={handleClick}>
-        Skönhet
-      </button>
-      <button value={'smartphones'} onClick={handleClick}>
-        Mobiltelefoner
-      </button>
+      <CategoryButtons handleClick={handleClick} />
       {useSearchField ? (
-        <Search />
+        <Search title="Eller skriv i sökfältet för att hitta din nästa favorit" />
       ) : (
         <Button text={'Egen sökning'} action={() => setUseSeachField(true)} />
       )}
