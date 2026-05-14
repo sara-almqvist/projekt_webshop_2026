@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import ProductList from './ProductList';
+import useSearch from '../hooks/useSearch';
+import { Link } from 'react-router-dom';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [products, setProducts] = useState([]);
   const [isFetched, setIsFetched] = useState(false); //för att undvika anrop vid omladdning eller tomt sökfält
+  const { isSearched, setIsSearched } = useSearch();
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -30,6 +33,7 @@ const Search = () => {
 
         const data = await res.json();
         setProducts(data.products);
+        setIsSearched(true);
       } catch (error) {
         console.error('Något gick fel', error);
       }
@@ -38,6 +42,7 @@ const Search = () => {
     return () => {
       clearTimeout(timer);
       setIsFetched(false);
+      setIsSearched(false);
     };
   }, [searchTerm]);
 
@@ -51,7 +56,19 @@ const Search = () => {
         onChange={handleChange}
         className="bg-gray-100 text-green-900"
       />
-      <ProductList data={products} />
+      {products.length > 0 ? (
+        <ProductList data={products} />
+      ) : (
+        isSearched && (
+          <>
+            <p>
+              Tyvärr hittar vi inte vad du söker efter. Testa att söka med ett
+              annat ord eller stavning.
+            </p>
+            <Link to={'/categories'}>Eller kolla in våra kategorier</Link>
+          </>
+        )
+      )}
     </>
   );
 };

@@ -12,81 +12,84 @@ import CartProvider from './components/CartProvider';
 import OrderConfirmation from './views/OrderConfirmation';
 import Test from './components/Test';
 import UserProvider from './components/UserProvider';
+import SearchProvider from './components/SearchProvider';
 
 function App() {
   return (
     <>
       <UserProvider>
         <CartProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route
-                index
-                element={
-                  <LayoutShop>
-                    <Home />
-                  </LayoutShop>
-                }
-              />
-              <Route
-                path="/about"
-                element={
-                  <LayoutShop>
-                    <About />
-                  </LayoutShop>
-                }
-              />
-              <Route
-                path="/categories"
-                element={
-                  <LayoutShop>
-                    <Categories />
-                  </LayoutShop>
-                }
-              />
-              <Route
-                path="/productpage/:id"
-                element={
-                  <LayoutShop>
-                    <ProductPage />
-                  </LayoutShop>
-                }
-              />
-              <Route
-                path="/cart"
-                element={
-                  <LayoutShop>
-                    <Cart />
-                  </LayoutShop>
-                }
-              />
-              <Route
-                path="/checkout"
-                element={
-                  <LayoutShop>
-                    <Checkout />
-                  </LayoutShop>
-                }
-              />
-              <Route
-                path="/test/1"
-                element={
-                  <LayoutShop>
-                    <Test />
-                  </LayoutShop>
-                }
-              />
-              <Route
-                path="/thanks"
-                element={
-                  <LayoutShop>
-                    <OrderConfirmation />
-                  </LayoutShop>
-                }
-              />
-              <Route path="/*" element={<WrongPath />} />
-            </Routes>
-          </BrowserRouter>
+          <SearchProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route
+                  index
+                  element={
+                    <LayoutShop>
+                      <Home />
+                    </LayoutShop>
+                  }
+                />
+                <Route
+                  path="/about"
+                  element={
+                    <LayoutShop>
+                      <About />
+                    </LayoutShop>
+                  }
+                />
+                <Route
+                  path="/categories"
+                  element={
+                    <LayoutShop>
+                      <Categories />
+                    </LayoutShop>
+                  }
+                />
+                <Route
+                  path="/productpage/:id"
+                  element={
+                    <LayoutShop>
+                      <ProductPage />
+                    </LayoutShop>
+                  }
+                />
+                <Route
+                  path="/cart"
+                  element={
+                    <LayoutShop>
+                      <Cart />
+                    </LayoutShop>
+                  }
+                />
+                <Route
+                  path="/checkout"
+                  element={
+                    <LayoutShop>
+                      <Checkout />
+                    </LayoutShop>
+                  }
+                />
+                <Route
+                  path="/test/1"
+                  element={
+                    <LayoutShop>
+                      <Test />
+                    </LayoutShop>
+                  }
+                />
+                <Route
+                  path="/thanks"
+                  element={
+                    <LayoutShop>
+                      <OrderConfirmation />
+                    </LayoutShop>
+                  }
+                />
+                <Route path="/*" element={<WrongPath />} />
+              </Routes>
+            </BrowserRouter>
+          </SearchProvider>
         </CartProvider>
       </UserProvider>
     </>

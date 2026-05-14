@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import Search from '../components/Search';
-import Card from '../components/Card';
 import ProductList from '../components/ProductList';
+import Button from '../components/Button';
 
 const Categories = () => {
   const [category, setCategory] = useState('mens-watches');
   const [isFetched, setIsFetched] = useState(false);
   const [data, setData] = useState([]);
+  const [useSearchField, setUseSeachField] = useState(true);
 
   const handleClick = (e) => {
     setCategory(e.target.value);
+    setUseSeachField(false);
   };
 
   useEffect(() => {
@@ -48,7 +50,11 @@ const Categories = () => {
       <button value={'smartphones'} onClick={handleClick}>
         Mobiltelefoner
       </button>
-      <Search />
+      {useSearchField ? (
+        <Search />
+      ) : (
+        <Button text={'Egen sökning'} action={() => setUseSeachField(true)} />
+      )}
       {isFetched ? (
         <ProductList data={data} />
       ) : (
