@@ -8,6 +8,10 @@
   font-weight: 600;
   background-color: #32033a;
   padding: 10px;
+  @media (max-width: 650px) {
+    flex-direction: column;
+    place-items: center;
+  }
 }
 
 .list {
@@ -15,6 +19,10 @@
   padding: 10px;
   max-width: 200px;
   font-size: 28px;
+}
+
+.listHidden {
+  display: none;
 }
 
 .list:hover {

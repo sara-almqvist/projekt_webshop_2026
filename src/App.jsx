@@ -13,6 +13,7 @@ import OrderConfirmation from './views/OrderConfirmation';
 import Test from './components/Test';
 import UserProvider from './components/UserProvider';
 import SearchProvider from './components/SearchProvider';
+import Contact from './views/Contact';
 
 function App() {
   return (
@@ -83,6 +84,14 @@ function App() {
                   element={
                     <LayoutShop>
                       <OrderConfirmation />
+                    </LayoutShop>
+                  }
+                />
+                <Route
+                  path="/contact"
+                  element={
+                    <LayoutShop>
+                      <Contact />
                     </LayoutShop>
                   }
                 />
