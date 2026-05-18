@@ -4,8 +4,8 @@ const TotalSum = () => {
   const { cart } = useCart();
 
   return (
-    <div className="text-red-500">
-      Att betala:
+    <div className="text-[#ed6b35] text-xl font-semibold p-2">
+      Totalt att betala:
       {' ' +
         cart
           .reduce((tot, obj) => {

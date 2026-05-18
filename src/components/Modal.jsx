@@ -7,12 +7,14 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return (
     <>
-      <div className="flex place-items-center">
-        <div className="bg-grey-600">
-          {children}
-          <Button text={'Stäng'} action={onClose} />
+      <dialog>
+        <div className="flex place-items-center">
+          <div className="bg-grey-600">
+            {children}
+            <Button text={'Stäng'} action={onClose} />
+          </div>
         </div>
-      </div>
+      </dialog>
     </>
   );
 };

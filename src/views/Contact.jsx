@@ -25,11 +25,26 @@ const Contact = () => {
         <h2 className="text-5xl font-semibold text-shadow-md">
           Kontakta Allt & Lite Till
         </h2>
-        <p>
-          Via telefon på nummer: 1234 5678 <br /> Vi svarar alla dagar mellan kl
-          9-18
-        </p>
-        <p>Via mejl: info@alltochlitetill.se</p>
+        <ul className="list-disc list-outside text-left text-[#32033a]">
+          <li>
+            <p>
+              Via telefon på nummer: 1234 5678. Vi svarar alla dagar mellan kl
+              9-18
+            </p>
+          </li>
+          <li>
+            <p>
+              Via mejl:{' '}
+              <a
+                href="mailto:info@alltochlitetill.se"
+                className="underline decoration-1"
+              >
+                info@alltochlitetill.se
+              </a>
+            </p>
+          </li>
+          <li>Via kontaktformulär</li>
+        </ul>
 
         {isSubmit ? (
           <p className="text-xl bg-white w-1/2 mx-auto mt-6 p-2">
@@ -38,9 +53,7 @@ const Contact = () => {
           </p>
         ) : (
           <>
-            <h2 className="text-[#ed6b35] text-lg">
-              Eller fyll i formuläret nedan
-            </h2>
+            <h2 className="text-[#ed6b35] text-lg">Kontaktformulär</h2>
             <form
               onSubmit={handleSubmit}
               className="flex flex-col place-items-center bg-[#ed6b35]"

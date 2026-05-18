@@ -14,6 +14,7 @@ import Test from './components/Test';
 import UserProvider from './components/UserProvider';
 import SearchProvider from './components/SearchProvider';
 import Contact from './views/Contact';
+import LayoutCheckOut from './views/LayoutCheckOut';
 
 function App() {
   return (
@@ -66,9 +67,9 @@ function App() {
                 <Route
                   path="/checkout"
                   element={
-                    <LayoutShop>
+                    <LayoutCheckOut>
                       <Checkout />
-                    </LayoutShop>
+                    </LayoutCheckOut>
                   }
                 />
                 <Route

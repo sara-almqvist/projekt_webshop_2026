@@ -25,12 +25,12 @@ const InspirationProducts = () => {
   }, []);
 
   return (
-    <>
+    <div className="p-2 m-2">
       <h2 className="text-[#ed6b35] text-xl font-normal">
-        Dessa produkter är populära just nu
+        Tre av våra mest populära produkter just nu:
       </h2>
       <ProductList data={products} />
-    </>
+    </div>
   );
 };
 
