@@ -18,8 +18,11 @@ function CartProvider({ children }) {
     if (cart.some((obj) => obj.id === product.id)) {
       increment(product.id);
     } else {
-      setCart([...cart, product]);
-      localStorage.setItem('cart', JSON.stringify([...cart, product]));
+      setCart([...cart, product].sort((a, b) => a.id - b.id));
+      localStorage.setItem(
+        'cart',
+        JSON.stringify([...cart, product].sort((a, b) => a.id - b.id))
+      );
     }
   };
 
@@ -40,7 +43,7 @@ function CartProvider({ children }) {
     const productToChange = cart.filter((obj) => obj.id === productId);
     const restOfCart = cart.filter((obj) => obj.id !== productId);
     productToChange[0].quantity += 1;
-    setCart([...restOfCart, ...productToChange]);
+    setCart([...restOfCart, ...productToChange].sort((a, b) => a.id - b.id));
     storeLocal();
   };
 
@@ -48,7 +51,7 @@ function CartProvider({ children }) {
     const productToChange = cart.filter((obj) => obj.id === productId);
     const restOfCart = cart.filter((obj) => obj.id !== productId);
     productToChange[0].quantity -= 1;
-    setCart([...restOfCart, ...productToChange]);
+    setCart([...restOfCart, ...productToChange].sort((a, b) => a.id - b.id));
     storeLocal();
   };
 
@@ -56,7 +59,7 @@ function CartProvider({ children }) {
     const productToChange = cart.filter((obj) => obj.id === productId);
     const restOfCart = cart.filter((obj) => obj.id !== productId);
     productToChange[0].quantity = newQuantity;
-    setCart([...restOfCart, ...productToChange]);
+    setCart([...restOfCart, ...productToChange].sort((a, b) => a.id - b.id));
     storeLocal();
   };
 

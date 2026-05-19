@@ -1,7 +1,7 @@
 import CartList from '../components/CartList';
 import OrderForm from '../components/OrderForm';
 import TotalSum from '../components/TotalSum';
-import useCart from '../components/useCart';
+import useCart from '../hooks/useCart';
 import { Link } from 'react-router-dom';
 import useUser from '../hooks/useUser';
 import { useEffect, useRef, useState } from 'react';

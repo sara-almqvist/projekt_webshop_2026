@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
-import useCart from '../components/useCart';
+import useCart from '../hooks/useCart';
 import Nav from '../components/Nav';
 
 const LayoutCheckOut = ({ children }) => {

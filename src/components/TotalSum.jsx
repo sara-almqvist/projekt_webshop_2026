@@ -1,4 +1,4 @@
-import useCart from './useCart';
+import useCart from '../hooks/useCart';
 
 const TotalSum = () => {
   const { cart } = useCart();

@@ -1,6 +1,6 @@
 import Button from './Button';
 import CartCard from './CartCard';
-import useCart from './useCart';
+import useCart from '../hooks/useCart';
 
 const CartList = ({ products }) => {
   const { cart, removeFromCart, clearCart, increment, decrement } = useCart();

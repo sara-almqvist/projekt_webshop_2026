@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import CartList from '../components/CartList.jsx';
-import useCart from '../components/useCart.js';
+import useCart from '../hooks/useCart.js';
 import TotalSum from '../components/TotalSum.jsx';
 import InspirationProducts from '../components/InspirationProducts.jsx';
 

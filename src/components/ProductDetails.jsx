@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import useCart from './useCart';
+import useCart from '../hooks/useCart';
 
 const ProductDetails = () => {
   const { id } = useParams();

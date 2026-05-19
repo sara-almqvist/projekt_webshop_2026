@@ -10,7 +10,6 @@ import Categories from './views/Categories';
 import ProductPage from './views/ProductPage';
 import CartProvider from './components/CartProvider';
 import OrderConfirmation from './views/OrderConfirmation';
-import Test from './components/Test';
 import UserProvider from './components/UserProvider';
 import SearchProvider from './components/SearchProvider';
 import Contact from './views/Contact';
@@ -73,14 +72,6 @@ function App() {
                   }
                 />
                 <Route
-                  path="/test/1"
-                  element={
-                    <LayoutShop>
-                      <Test />
-                    </LayoutShop>
-                  }
-                />
-                <Route
                   path="/thanks"
                   element={
                     <LayoutShop>
@@ -96,7 +87,14 @@ function App() {
                     </LayoutShop>
                   }
                 />
-                <Route path="/*" element={<WrongPath />} />
+                <Route
+                  path="/*"
+                  element={
+                    <LayoutShop>
+                      <WrongPath />
+                    </LayoutShop>
+                  }
+                />
               </Routes>
             </BrowserRouter>
           </SearchProvider>
