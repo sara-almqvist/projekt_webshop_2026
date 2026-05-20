@@ -19,10 +19,11 @@
   padding: 10px;
   max-width: 200px;
   font-size: 28px;
-}
 
-.listHidden {
-  display: none;
+  @media (max-width: 650px) {
+    font-size: 20px;
+    padding: 5px;
+  }
 }
 
 .list:hover {

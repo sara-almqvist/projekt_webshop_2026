@@ -22,7 +22,7 @@ const CartList = ({ products }) => {
           />
         ))}
         {cart.length > 0 && (
-          <div className="w-1/3 self-end">
+          <div className="sm:w-1/3 self-end">
             <Button text="Ta bort allt ur kundvagnen" action={clearCart} />
           </div>
         )}

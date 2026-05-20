@@ -14,6 +14,7 @@ import UserProvider from './components/UserProvider';
 import SearchProvider from './components/SearchProvider';
 import Contact from './views/Contact';
 import LayoutCheckOut from './views/LayoutCheckOut';
+import Delivery from './components/Delivery';
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="/categories"
+                  path="/categories/"
                   element={
                     <LayoutShop>
                       <Categories />
@@ -85,6 +86,14 @@ function App() {
                     <LayoutShop>
                       <Contact />
                     </LayoutShop>
+                  }
+                />
+                <Route
+                  path="/delivery"
+                  element={
+                    <LayoutCheckOut>
+                      <Delivery />
+                    </LayoutCheckOut>
                   }
                 />
                 <Route

@@ -10,9 +10,10 @@ const Cart = () => {
     <>
       {cart.length > 0 ? (
         <>
-          <h1 className="text-[#ed6b35] text-xl font-semibold">
+          <h1 className="text-[#ed6b35]  text-2xl md:text-4xl font-semibold">
             Innehållet i din kundvagn
           </h1>
+
           <CartList products={cart} />
           <TotalSum />
           <Link
@@ -30,7 +31,7 @@ const Cart = () => {
           <br />
           <Link
             to={'/categories'}
-            className="text-[#ed6b35] text-xl font-semibold cursor-pointer bg-white/50 rounded-xl p-2 hover:bg-[#32033a] hover:text-white"
+            className="text-[#ed6b35] text-xl font-semibold cursor-pointer bg-white/50 rounded-xl p-2 hover:bg-[#32033a] hover:text-white my-2"
           >
             Här hittar du något att fylla den med!
           </Link>

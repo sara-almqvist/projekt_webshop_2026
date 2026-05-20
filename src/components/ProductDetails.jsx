@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import useCart from '../hooks/useCart';
+import Button from './Button';
+import RelatedProducts from './RelatedProducts';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -8,6 +10,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState('');
   const [orderQuantity, setOrderQuantity] = useState(1);
   const [confirmation, setConfirmation] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = ({ target }) => {
     setOrderQuantity(parseInt(target.value));
@@ -48,42 +51,59 @@ const ProductDetails = () => {
 
   return product ? (
     confirmation ? (
-      <p>
-        {`Du har lagt ${orderQuantity} st av ${product.title} i kundvagnen!`}
-        <Link to={'/categories'}>Handla vidare</Link>
-        <Link to={'/checkout'}>Till kassan</Link>
-      </p>
-    ) : (
-      <div className="grid grid-cols-2 grid-rows-[20%,35%,30%,15%] place-items-center">
-        <h3 className="col-span-2 text-4xl">{product.title}</h3>
-        <img src={product.images[0]} className="w-48 col-span-2 row-start-2" />
-        <p className="row-start-3 col-span-2">{product.description}</p>
-        <p className="col-start-1 row-start-4">{product.price} kr</p>
-        <label className="bg-green-100">
-          Ange önskat antal:
-          <input
-            id="quantity"
-            name="quantity"
-            type="number"
-            min={1}
-            value={orderQuantity}
-            className="w-1/6"
-            onChange={handleChange}
-          />
-          <button
-            className="bg-gray-500 p-2 rounded-full text-white font-bold hover:bg-gray-600 shadow-xl shadow-grey-500/50"
-            onClick={handleClick}
+      <div className="flex flex-col flex-wrap gap-4 m-auto text-xl justify-center">
+        <p className="text-[#ed6b35]">
+          {`Du har lagt ${orderQuantity} st av ${product.title} i kundvagnen!`}
+        </p>
+        <div className="flex flex-row flex-nowrap gap-4 text-xl justify-center">
+          <Button text={'Handla vidare'} action={() => navigate(-1)} />
+          <Link
+            to={'/checkout'}
+            className="bg-[#32033a] p-2 rounded-full text-white font-bold hover:bg-[#db4e14] shadow-xl shadow-grey-500/50 my-2 cursor-pointer"
           >
-            Lägg i kundvagn
-          </button>
-        </label>
-        <Link to={'/'} className="bg-purple-200 hover:bg-purple-400 p-4">
-          Tillbaka
-        </Link>
+            Till kassan
+          </Link>
+        </div>
       </div>
+    ) : (
+      <>
+        <div className="w-5/6 p-4 bg-[#ffffff]/50 text-[#ed6b35] text-xl mx-auto mt-4">
+          <div className="flex flex-col gap-4">
+            <div className="self-end">
+              <Button text={'X'} action={() => navigate(-1)} />
+            </div>
+            <h3 className="text-4xl text-[#32033a] font-semibold">
+              {product.title}
+            </h3>
+            <div className="flex flex-col sm:flex-row flex-nowrap gap-4 place-items-center">
+              <img src={product.images[0]} className="w-48" />
+              <p>{product.description}</p>
+            </div>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 place-items-center">
+              <p className="basis-1/6">{product.price} kr/st</p>
+              <div className="text-[#32033a] flex gap-4 items-center">
+                <label>
+                  Ange önskat antal:
+                  <input
+                    id="quantity"
+                    name="quantity"
+                    type="number"
+                    min={1}
+                    value={orderQuantity}
+                    className="w-1/4 sm:w-1/8 bg-white text-center"
+                    onChange={handleChange}
+                  />
+                </label>
+                <Button text={'Lägg i kundvagn'} action={handleClick} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <RelatedProducts category={product.category} id={product.id} />
+      </>
     )
   ) : (
-    <p>Information om produkten laddas...</p>
+    <p className="text-[#ed6b35] text-xl">Information om produkten laddas...</p>
   );
 };
 

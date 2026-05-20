@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import useUser from '../hooks/useUser';
 
-const OrderForm = ({ modal }) => {
+const OrderForm = ({ modal, OnSubmit }) => {
   const { user, setUser } = useUser();
   const [form, setForm] = useState(user);
 
@@ -12,7 +12,6 @@ const OrderForm = ({ modal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Du loggar in som ${form.firstName} ${form.lastName}!`);
     setUser(form);
     localStorage.setItem('user', JSON.stringify(form));
     if (modal) {
@@ -23,7 +22,7 @@ const OrderForm = ({ modal }) => {
   return (
     <>
       <form
-        className="flex flex-col flex-wrap bg-[#ed6b35]/50 text-[#32033a]"
+        className="flex flex-col flex-wrap bg-[#ed6b35]/50 text-[#32033a] w-full"
         onSubmit={handleSubmit}
       >
         <input
@@ -82,10 +81,17 @@ const OrderForm = ({ modal }) => {
           type="text"
           onChange={handleChange}
         />
-        <input
+        {/* <input
           type="submit"
           className="bg-[#32033a] text-white focus:bg-[##db4e14] p-2 rounded-full font-bold hover:bg-[#db4e14] shadow-xl shadow-grey-500/50 my-2 cursor-pointer w-1/3 self-center"
-        />
+        /> */}
+        <button
+          type="submit"
+          onClick={OnSubmit}
+          className="bg-[#32033a] text-white focus:bg-[##db4e14] p-2 rounded-full font-bold hover:bg-[#db4e14] shadow-xl shadow-grey-500/50 my-2 cursor-pointer w-1/3 self-center"
+        >
+          Spara
+        </button>
       </form>
     </>
   );

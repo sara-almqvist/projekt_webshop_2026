@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <>
-      <footer className="flex justify-evenly p-8 bg-[#32033a] my-8">
+      <footer className="flex flex-col justify-evenly bg-[#32033a] gap-2 p-2 sm:my-8 sm:flex-row sm:p-8">
         <Link to={'/contact'}>
           <div className="flex flex-col">
             <h4 className="text-[#ed6b35]">Behöver du hjälp?</h4>

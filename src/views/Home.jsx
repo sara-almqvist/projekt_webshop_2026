@@ -6,7 +6,7 @@ const Home = () => {
   const { isSearched } = useSearch();
   return (
     <>
-      <h1 className="text-[#ed6b35] text-8xl font-semibold text-shadow-md">
+      <h1 className="text-[#ed6b35] text-5xl md:text-8xl font-semibold text-shadow-md">
         Välkommen
       </h1>
       <Search />

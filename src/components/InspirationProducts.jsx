@@ -3,6 +3,7 @@ import ProductList from './ProductList';
 
 const InspirationProducts = () => {
   const [products, setProducts] = useState([]);
+  const [isFetched, setIsFetched] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(async () => {
@@ -14,6 +15,7 @@ const InspirationProducts = () => {
 
         const data = await res.json();
         setProducts(data.products);
+        setIsFetched(true);
       } catch (error) {
         console.log('Fel vid hämtning', error);
       }
@@ -21,16 +23,21 @@ const InspirationProducts = () => {
 
     return () => {
       clearTimeout(timer);
+      setIsFetched(false);
     };
   }, []);
 
-  return (
+  return isFetched ? (
     <div className="p-2 m-2">
       <h2 className="text-[#ed6b35] text-xl font-normal">
         Tre av våra mest populära produkter just nu:
       </h2>
       <ProductList data={products} />
     </div>
+  ) : (
+    <p className="text-[#ed6b35] text-lg font-normal">
+      Här får du snart lite inspiration...
+    </p>
   );
 };
 
