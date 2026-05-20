@@ -3,16 +3,19 @@ import Search from '../components/Search';
 import ProductList from '../components/ProductList';
 import Button from '../components/Button';
 import CategoryButtons from '../components/CategoryButtons';
+import useSearch from '../hooks/useSearch';
 
 const Categories = () => {
   const [category, setCategory] = useState('mens-watches');
   const [isFetched, setIsFetched] = useState(false);
   const [data, setData] = useState([]);
   const [useSearchField, setUseSeachField] = useState(true);
+  const { isSearched, setIsSearched } = useSearch();
 
   const handleClick = (e) => {
     setCategory(e.target.value);
     setUseSeachField(false);
+    setIsSearched(false);
   };
 
   useEffect(() => {
@@ -31,7 +34,7 @@ const Categories = () => {
       } catch (error) {
         console.error('Något gick fel', error);
       }
-    }, 1000);
+    }, 500);
 
     return () => {
       clearTimeout(timer);
@@ -47,11 +50,14 @@ const Categories = () => {
       ) : (
         <Button text={'Egen sökning'} action={() => setUseSeachField(true)} />
       )}
-      {isFetched ? (
-        <ProductList data={data} />
-      ) : (
-        <p>Här syns produkter alldeles strax!</p>
-      )}
+      {!isSearched &&
+        (isFetched ? (
+          <ProductList data={data} />
+        ) : (
+          <p className="text-lg text-[#ed6b35]">
+            Här syns produkter alldeles strax!
+          </p>
+        ))}
     </>
   );
 };

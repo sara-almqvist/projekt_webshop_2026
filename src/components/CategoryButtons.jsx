@@ -1,36 +1,14 @@
 import CategoryButton from './CategoryButton';
+import categoryList from './categoryList.js';
 
 const CategoryButtons = ({ handleClick }) => {
-  const list = [
-    { term: 'beauty', displayText: 'Skönhet', index: 0 },
-    { term: 'fragrances', displayText: 'Parfym', index: 1 },
-    { term: 'furniture', displayText: 'Möbler', index: 2 },
-    { term: 'groceries', displayText: 'Skafferivaror', index: 3 },
-    { term: 'home-decoration', displayText: 'Heminredning', index: 4 },
-    { term: 'kitchen-accessories', displayText: 'Kökstillbehör', index: 5 },
-    { term: 'laptops', displayText: 'Bärbara datorer', index: 6 },
-    { term: 'mens-shirts', displayText: 'Herrtröjor', index: 7 },
-    { term: 'mens-shoes', displayText: 'Herrskor', index: 8 },
-    { term: 'mens-watches', displayText: 'Klockor för honom', index: 9 },
-    { term: 'mobile-accessories', displayText: 'Mobiltillbehör', index: 10 },
-    { term: 'skin-care', displayText: 'Hudvård', index: 11 },
-    { term: 'smartphones', displayText: 'Mobiltelefoner', index: 12 },
-    { term: 'sports-accessories', displayText: 'Sporttillbehör', index: 13 },
-    { term: 'sunglasses', displayText: 'Solglasögon', index: 14 },
-    { term: 'tops', displayText: 'Tops', index: 15 },
-    { term: 'womens-bags', displayText: 'Väskor', index: 16 },
-    { term: 'womens-dresses', displayText: 'Klänningar', index: 17 },
-    { term: 'womens-jewellery', displayText: 'Smycken för henne', index: 18 },
-    { term: 'womens-shoes', displayText: 'Damskor', index: 19 },
-    { term: 'womens-watches', displayText: 'Klockor för henne', index: 20 },
-  ];
   return (
     <>
       <h2 className="text-[#ed6b35] font-medium text-3xl pt-4">
         Klicka på en kategori
       </h2>
       <div className="flex flex-wrap justify-center items-center p-4 gap-2">
-        {list.map((l) => (
+        {categoryList.map((l) => (
           <CategoryButton
             key={l.index}
             value={l.term}

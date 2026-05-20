@@ -8,6 +8,7 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
   const [products, setProducts] = useState([]);
   const [isFetched, setIsFetched] = useState(false); //för att undvika anrop vid omladdning eller tomt sökfält
   const { isSearched, setIsSearched } = useSearch();
+  const [localSearch, setLocalSearch] = useState(isSearched);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -34,6 +35,7 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
         const data = await res.json();
         setProducts(data.products);
         setIsSearched(true);
+        setLocalSearch(true);
       } catch (error) {
         console.error('Något gick fel', error);
       }
@@ -42,6 +44,7 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
     return () => {
       clearTimeout(timer);
       setIsFetched(false);
+      setLocalSearch(false);
       setIsSearched(false);
     };
   }, [searchTerm]);
@@ -56,21 +59,25 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
         onChange={handleChange}
         className="bg-gray-100 text-[#db4e14]"
       />
-      {products.length > 0 ? (
-        <ProductList data={products} />
-      ) : (
-        isSearched && (
-          <>
-            <p className="text-lg text-[#32033a]">
-              Tyvärr hittar vi inte vad du söker efter. Testa att söka med ett
-              annat ord eller stavning.
-            </p>
-            <Link to={'/categories'} className="text-lg text-[#32033a]">
-              Eller kolla in våra kategorier
-            </Link>
-          </>
-        )
-      )}
+      {localSearch &&
+        (products.length > 0 ? (
+          <ProductList data={products} />
+        ) : (
+          isSearched && (
+            <>
+              <p className="text-lg text-[#32033a]">
+                Tyvärr hittar vi inte vad du söker efter. Testa att söka med ett
+                annat ord eller stavning.
+              </p>
+              <Link to={'/categories'} className="text-lg text-[#32033a]">
+                Eller kolla in våra{' '}
+                <span className="text-white bg-[#32033a] px-2 py-1 rounded-xl cursor-pointer hover:bg-[#ed6b35] uppercase font-semibold">
+                  kategorier
+                </span>
+              </Link>
+            </>
+          )
+        ))}
     </>
   );
 };
