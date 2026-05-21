@@ -4,9 +4,12 @@ const About = () => {
   return (
     <>
       <h1 className="text-[#ed6b35] text-3xl font-medium">
-        Om <span className="italic font-semibold">Allt & Lite Till</span>
+        Om{' '}
+        <span className="italic font-semibold font-serif text-shadow-md">
+          Allt & Lite Till
+        </span>
       </h1>
-      <div className="flex flex-col place-items-center gap-4">
+      <div className="flex flex-col justify-evenly items-center gap-4 md:min-h-150">
         <p className="text-[#32033a] text-base mx-10 text-justify">
           <span className="italic font-semibold">Allt & Lite Till</span>{' '}
           startades i ett trångt källarförråd av två vänner som tröttnat på att
@@ -21,7 +24,7 @@ const About = () => {
           stolta över att leverera smarta lösningar, hög kvalitet och den där
           magiska upplevelsen av att få allt – och lite till.
         </p>
-        <Link to={'/'} className="w-1/2">
+        <Link to={'/'} className="w-1/2 mb-4">
           <img
             src="https://res.cloudinary.com/dfplwytwx/image/upload/v1778768249/Ska%CC%88rmavbild_2026-05-14_kl._16.16.03_nrcjds.png"
             alt="Företagets logga"

@@ -57,7 +57,7 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
         placeholder="Skriv för att söka ..."
         value={searchTerm}
         onChange={handleChange}
-        className="bg-gray-100 text-[#db4e14]"
+        className="bg-gray-100 text-[#db4e14] w-5/6"
       />
       {localSearch &&
         (products.length > 0 ? (

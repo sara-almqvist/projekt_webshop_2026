@@ -79,14 +79,13 @@ const Checkout = () => {
       <CartList products={cart} />
 
       {cart.length > 0 && (
-        <>
-          <TotalSum />
-          <div className="flex flex-row flex-nowrap my-4 mx-2 lg:justify-evenly gap-6 justify-center">
+        <div className="bg-[#ed6b35]/50 p-4 rounded-xl shadow-xl m-4">
+          <div className="flex flex-col-reverse md:flex-row flex-nowrap my-4 mx-2 lg:justify-evenly gap-6 justify-center">
             <Link
               to={'/categories'}
               className="bg-[#32033a] p-3 rounded-full text-white text-xl font-bold hover:bg-[#db4e14] shadow-xl shadow-grey-500/50 cursor-pointer "
             >
-              Handla mer
+              Fortsätt handla
             </Link>
 
             <button
@@ -95,8 +94,9 @@ const Checkout = () => {
             >
               Beställ och betala varorna i kundvagnen
             </button>
+            <TotalSum />
           </div>
-        </>
+        </div>
       )}
     </>
   );

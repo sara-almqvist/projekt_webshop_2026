@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const [userInput, setUserInput] = useState({
@@ -21,9 +22,13 @@ const Contact = () => {
 
   return (
     <>
-      <div className="p-6 text-[#ed6b35] text-lg md:min-h-150 ">
-        <h2 className="text-5xl font-semibold text-shadow-md">
-          Kontakta Allt & Lite Till
+      <div className="p-6 text-[#ed6b35] text-xl/8 ">
+        <h2 className="text-5xl font-medium ">
+          Så här kontaktar du{' '}
+          <span className="font-serif italic font-semibold text-shadow-md">
+            Allt & Lite Till
+          </span>
+          :
         </h2>
         <ul className="list-disc list-outside text-left text-[#32033a]">
           <li>
@@ -47,16 +52,20 @@ const Contact = () => {
         </ul>
 
         {isSubmit ? (
-          <p className="text-xl bg-white w-1/2 mx-auto mt-6 p-2">
-            Tack för ditt meddelande {userInput.name}! <br />
-            Vi hör av oss så snart vi kan
-          </p>
+          <Link to={'/categories'}>
+            <p className="text-xl bg-white w-1/2 mx-auto mt-6 p-2">
+              Tack för ditt meddelande {userInput.name}! <br />
+              Vi hör av oss så snart vi kan
+            </p>
+          </Link>
         ) : (
           <>
-            <h2 className="text-[#ed6b35] text-lg">Kontaktformulär</h2>
+            <h2 className="text-[#ed6b35] text-2xl font-semibold">
+              Kontaktformulär
+            </h2>
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col place-items-center bg-[#ed6b35]"
+              className="flex flex-col place-items-center bg-[#ed6b35] py-4 gap-2"
             >
               <label className="text-[#32033a] font-bold text-base px-4 w-full">
                 Namn:

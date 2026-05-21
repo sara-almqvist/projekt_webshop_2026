@@ -22,7 +22,7 @@ const OrderForm = ({ modal, OnSubmit }) => {
   return (
     <>
       <form
-        className="flex flex-col flex-wrap bg-[#ed6b35]/50 text-[#32033a] w-full"
+        className="flex flex-col flex-wrap bg-[#ed6b35]/50 text-[#32033a] w-full rounded-xl"
         onSubmit={handleSubmit}
       >
         <input

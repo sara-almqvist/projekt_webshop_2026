@@ -9,7 +9,7 @@ const Cart = () => {
   return (
     <>
       {cart.length > 0 ? (
-        <>
+        <div className="flex flex-col gap-4 md:w-5/6 md:mx-auto">
           <h1 className="text-[#ed6b35]  text-2xl md:text-4xl font-semibold">
             Innehållet i din kundvagn
           </h1>
@@ -22,16 +22,15 @@ const Cart = () => {
           >
             Till kassan
           </Link>
-        </>
+        </div>
       ) : (
-        <div className="md:min-h-150">
-          <p className="text-[#ed6b35] text-xl italic font-medium p-4 mt-6">
+        <div className="flex flex-col gap-4 mt-4 place-items-center">
+          <p className="text-[#ed6b35] text-xl italic font-medium">
             Kundvagnen är tom
           </p>
-          <br />
           <Link
             to={'/categories'}
-            className="text-[#ed6b35] text-xl font-semibold cursor-pointer bg-white/50 rounded-xl p-2 hover:bg-[#32033a] hover:text-white my-2"
+            className="text-[#ed6b35] text-xl font-semibold cursor-pointer bg-white/50 rounded-xl p-2 hover:bg-[#32033a] hover:text-white w-5/6"
           >
             Här hittar du något att fylla den med!
           </Link>

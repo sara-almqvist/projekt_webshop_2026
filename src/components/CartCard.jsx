@@ -40,7 +40,9 @@ const CartCard = ({
           <p className="text-[#db4e14] font-bold">
             Totalt: {(price * quantity).toFixed(2)} kr
           </p>
-          <Button text=" Ta bort " action={removeFunction} />
+          <div className="text-sm">
+            <Button text="Ta bort" action={removeFunction} />
+          </div>
         </div>
       </div>
     </>

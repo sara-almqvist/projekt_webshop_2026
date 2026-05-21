@@ -5,7 +5,7 @@ import CartSymbol from '../components/CartSymbol';
 //Standardlayout to wrapp webbsitecontent
 const LayoutShop = ({ children }) => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <div className="flex gap-2 sm:gap-4 justify-between sm:justify-start items-center bg-[#32033a]">
         <Link to={'/'} className=" max-w-1/3 sm:w-1/6 ">
           <img
@@ -22,9 +22,9 @@ const LayoutShop = ({ children }) => {
         </Link>
       </div>
       <Nav />
-      {children}
+      <main className="flex-grow">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 

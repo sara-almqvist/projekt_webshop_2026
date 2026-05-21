@@ -6,7 +6,7 @@ import Nav from '../components/Nav';
 const LayoutCheckOut = ({ children }) => {
   const { cart } = useCart();
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <div className="flex gap-4 justify-center sm:justify-start items-center bg-[#32033a]">
         <Link to={'/'} className=" w-1/2 sm:w-1/6 ">
           <img
@@ -20,9 +20,9 @@ const LayoutCheckOut = ({ children }) => {
         </h1>
       </div>
       {cart.length === 0 && <Nav />}
-      {children}
+      <main className="flex-grow">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 

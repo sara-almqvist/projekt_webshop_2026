@@ -9,11 +9,12 @@ const ProductDetails = () => {
   const { cart, addToCart, addNewQuantity } = useCart();
   const [product, setProduct] = useState('');
   const [orderQuantity, setOrderQuantity] = useState(1);
+  const [formOrderQuantity, setFormOrderQuantity] = useState(orderQuantity);
   const [confirmation, setConfirmation] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = ({ target }) => {
-    setOrderQuantity(parseInt(target.value));
+    setFormOrderQuantity(target.value);
   };
 
   const handleClick = () => {
@@ -48,6 +49,18 @@ const ProductDetails = () => {
 
     return () => clearTimeout(timer);
   }, [id]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (formOrderQuantity !== '') {
+        setOrderQuantity(parseInt(formOrderQuantity));
+      } else {
+        setOrderQuantity(1);
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [formOrderQuantity]);
 
   return product ? (
     confirmation ? (
@@ -89,9 +102,10 @@ const ProductDetails = () => {
                     name="quantity"
                     type="number"
                     min={1}
-                    value={orderQuantity}
+                    value={formOrderQuantity}
                     className="w-1/4 sm:w-1/8 bg-white text-center"
                     onChange={handleChange}
+                    required={true}
                   />
                 </label>
                 <Button text={'Lägg i kundvagn'} action={handleClick} />
