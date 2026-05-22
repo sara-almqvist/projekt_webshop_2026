@@ -64,10 +64,11 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
           <ProductList data={products} />
         ) : (
           isSearched && (
-            <>
-              <p className="text-lg text-[#32033a]">
-                Tyvärr hittar vi inte vad du söker efter. Testa att söka med ett
-                annat ord eller stavning.
+            <div className="mb-4">
+              <p className="text-lg text-[#32033a] w-5/6 mx-auto my-2">
+                Tyvärr hittar vi inte vad du söker efter. <br />
+                Testa att söka med ett annat ord eller stavning. Tänk på att du
+                behöver söka på engelska.
               </p>
               <Link to={'/categories'} className="text-lg text-[#32033a]">
                 Eller kolla in våra{' '}
@@ -75,7 +76,7 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
                   kategorier
                 </span>
               </Link>
-            </>
+            </div>
           )
         ))}
     </>

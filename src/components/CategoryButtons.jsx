@@ -1,7 +1,7 @@
 import CategoryButton from './CategoryButton';
 import categoryList from './categoryList.js';
 
-const CategoryButtons = ({ handleClick }) => {
+const CategoryButtons = ({ handleClick, selectedCategory }) => {
   return (
     <>
       <h2 className="text-[#ed6b35] font-medium text-3xl pt-4">
@@ -14,6 +14,7 @@ const CategoryButtons = ({ handleClick }) => {
             value={l.term}
             handleClick={handleClick}
             label={l.displayText}
+            isActive={l.term === selectedCategory ? true : false}
           />
         ))}
       </div>

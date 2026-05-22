@@ -4,6 +4,7 @@ import ProductList from '../components/ProductList';
 import Button from '../components/Button';
 import CategoryButtons from '../components/CategoryButtons';
 import useSearch from '../hooks/useSearch';
+import categoryList from '../components/categoryList';
 
 const Categories = () => {
   const [category, setCategory] = useState('mens-watches');
@@ -11,6 +12,7 @@ const Categories = () => {
   const [data, setData] = useState([]);
   const [useSearchField, setUseSeachField] = useState(true);
   const { isSearched, setIsSearched } = useSearch();
+  const [displayCategory, setDisplayCategory] = useState('');
 
   const handleClick = (e) => {
     setCategory(e.target.value);
@@ -31,6 +33,16 @@ const Categories = () => {
         const data = await res.json();
         setData(data.products);
         setIsFetched(true);
+        setDisplayCategory(() => {
+          const display = categoryList.find(
+            (object) => object.term === category
+          );
+          if (display) {
+            return display.displayText;
+          } else {
+            return '';
+          }
+        });
       } catch (error) {
         console.error('Något gick fel', error);
       }
@@ -40,11 +52,11 @@ const Categories = () => {
       clearTimeout(timer);
       setIsFetched(false);
     };
-  }, [category]);
+  }, [category, displayCategory]);
 
   return (
     <>
-      <CategoryButtons handleClick={handleClick} />
+      <CategoryButtons handleClick={handleClick} selectedCategory={category} />
       {useSearchField ? (
         <Search title="Eller skriv i sökfältet för att hitta din nästa favorit" />
       ) : (
@@ -52,7 +64,11 @@ const Categories = () => {
       )}
       {!isSearched &&
         (isFetched ? (
-          <ProductList data={data} />
+          <div>
+            <hr className="mt-4 mb-6 text-[#32033a]"></hr>
+            <ProductList data={data} />
+            <hr className="mt-6 text-[#32033a]"></hr>
+          </div>
         ) : (
           <p className="text-lg text-[#ed6b35]">
             Här syns produkter alldeles strax!
