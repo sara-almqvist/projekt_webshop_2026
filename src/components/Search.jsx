@@ -54,7 +54,7 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
       <h2 className="text-[#ed6b35] font-medium text-3xl">{title}</h2>
       <input
         type="text"
-        placeholder="Skriv för att söka ..."
+        placeholder="Skriv på engelska för att söka ..."
         value={searchTerm}
         onChange={handleChange}
         className="bg-gray-100 text-[#db4e14] w-5/6"

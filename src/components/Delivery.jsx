@@ -1,11 +1,15 @@
 import OrderForm from './OrderForm';
 import { useNavigate } from 'react-router-dom';
+import useUser from '../hooks/useUser';
 
 const Delivery = () => {
   const navigate = useNavigate();
+  const { user } = useUser();
 
   const handleSubmit = () => {
-    navigate('/checkout');
+    if (user.address !== '') {
+      navigate('/checkout');
+    }
   };
 
   return (

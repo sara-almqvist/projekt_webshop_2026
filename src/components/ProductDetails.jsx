@@ -64,7 +64,7 @@ const ProductDetails = () => {
 
   return product ? (
     confirmation ? (
-      <div className="flex flex-col flex-wrap gap-4 m-auto text-xl justify-center">
+      <div className="flex flex-col flex-wrap gap-4 mx-4 mt-30 text-xl justify-center border-2 border-dashed border-[#32033a] p-4">
         <p className="text-[#ed6b35]">
           {`Du har lagt ${orderQuantity} st av ${product.title} i kundvagnen!`}
         </p>

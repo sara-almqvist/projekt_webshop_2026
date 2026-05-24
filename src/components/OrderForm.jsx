@@ -32,6 +32,7 @@ const OrderForm = ({ modal, OnSubmit }) => {
           name="firstName"
           type="text"
           onChange={handleChange}
+          required={true}
         />
         <input
           className="bg-[#e6e6e6] focus:bg-[#db4e14] focus:text-white placeholder:text-[#32033a]/80"
@@ -40,6 +41,7 @@ const OrderForm = ({ modal, OnSubmit }) => {
           name="lastName"
           type="text"
           onChange={handleChange}
+          required={true}
         />
         <input
           className="bg-[#e6e6e6] focus:bg-[#db4e14] focus:text-white placeholder:text-[#32033a]/80"
@@ -48,6 +50,7 @@ const OrderForm = ({ modal, OnSubmit }) => {
           name="phone"
           type="phone"
           onChange={handleChange}
+          required={true}
         />
         <input
           className="bg-[#e6e6e6] focus:bg-[#db4e14] focus:text-white placeholder:text-[#32033a]/80"
@@ -56,6 +59,7 @@ const OrderForm = ({ modal, OnSubmit }) => {
           name="email"
           type="email"
           onChange={handleChange}
+          required={true}
         />
         <input
           className="bg-[#e6e6e6] focus:bg-[#db4e14] focus:text-white placeholder:text-[#32033a]/80"
@@ -64,6 +68,7 @@ const OrderForm = ({ modal, OnSubmit }) => {
           name="address"
           type="text"
           onChange={handleChange}
+          required={true}
         />
         <input
           className="bg-[#e6e6e6] focus:bg-[#db4e14] focus:text-white placeholder:text-[#32033a]/80"
@@ -72,6 +77,7 @@ const OrderForm = ({ modal, OnSubmit }) => {
           name="postCode"
           type="number"
           onChange={handleChange}
+          required={true}
         />
         <input
           className="bg-[#e6e6e6] focus:bg-[#db4e14] focus:text-white placeholder:text-[#32033a]/80"
@@ -81,10 +87,6 @@ const OrderForm = ({ modal, OnSubmit }) => {
           type="text"
           onChange={handleChange}
         />
-        {/* <input
-          type="submit"
-          className="bg-[#32033a] text-white focus:bg-[##db4e14] p-2 rounded-full font-bold hover:bg-[#db4e14] shadow-xl shadow-grey-500/50 my-2 cursor-pointer w-1/3 self-center"
-        /> */}
         <button
           type="submit"
           onClick={OnSubmit}

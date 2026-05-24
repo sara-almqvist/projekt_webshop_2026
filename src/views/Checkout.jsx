@@ -37,29 +37,33 @@ const Checkout = () => {
   }, [modalOpen]);
 
   return (
-    <>
+    <div className="flex flex-col gap-4 justify-evenly">
       {cart.length === 0 && (
-        <>
+        <div>
           <p className="text-[#ed6b35] text-2xl font-semibold p-7 ">
             Oops... Du behöver lägga något i kundvagnen innan du betalar i
             kassan
           </p>
           <InspirationProducts />
-        </>
+        </div>
       )}
 
       {user.firstName !== '' ? (
-        <>
-          <h2 className="text-[#ed6b35] text-2xl font-semibold p-3">
-            Kontrollera innehållet i din kundvagn, {user.firstName}
-          </h2>
+        <div>
+          {cart.length !== 0 && (
+            <h2 className="text-[#ed6b35] text-2xl font-semibold p-3">
+              Kontrollera innehållet i din kundvagn, {user.firstName}
+            </h2>
+          )}
 
-          <Button
-            text={`Är du inte ${user.firstName}, eller vill du ändra leveransadress?`}
-            action={() => {
-              setModalOpen(true);
-            }}
-          />
+          <div>
+            <Button
+              text={`Är du inte ${user.firstName}, eller vill du ändra leveransadress?`}
+              action={() => {
+                setModalOpen(true);
+              }}
+            />
+          </div>
           <dialog
             ref={dialogRef}
             onClose={() => setModalOpen(false)}
@@ -71,12 +75,14 @@ const Checkout = () => {
             <OrderForm modal={() => setModalOpen(false)} />
             <Button text={'Stäng rutan'} action={() => setModalOpen(false)} />
           </dialog>
-        </>
+        </div>
       ) : (
         <Delivery />
       )}
 
-      <CartList products={cart} />
+      <div className="flex flex-col gap-4 md:w-5/6 md:mx-auto">
+        <CartList products={cart} />
+      </div>
 
       {cart.length > 0 && (
         <div className="bg-[#ed6b35]/50 p-4 rounded-xl shadow-xl m-4">
@@ -98,7 +104,7 @@ const Checkout = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -10,6 +10,7 @@ const ProductList = ({ data }) => {
   };
   return (
     <>
+      <hr className="mt-4 mb-6 text-[#32033a]"></hr>
       <div className="flex flex-wrap gap-4 justify-center items-center mb-4">
         {data.map((item) => (
           <Card
@@ -23,6 +24,7 @@ const ProductList = ({ data }) => {
           />
         ))}
       </div>
+      <hr className="mt-4 mb-6 text-[#32033a]"></hr>
     </>
   );
 };
