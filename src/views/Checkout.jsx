@@ -37,7 +37,7 @@ const Checkout = () => {
   }, [modalOpen]);
 
   return (
-    <div className="flex flex-col gap-4 justify-evenly">
+    <div className="flex flex-col gap-4 mt-4">
       {cart.length === 0 && (
         <div>
           <p className="text-[#ed6b35] text-2xl font-semibold p-7 ">
@@ -49,7 +49,7 @@ const Checkout = () => {
       )}
 
       {user.firstName !== '' ? (
-        <div>
+        <div className="my-4">
           {cart.length !== 0 && (
             <h2 className="text-[#ed6b35] text-2xl font-semibold p-3">
               Kontrollera innehållet i din kundvagn, {user.firstName}
@@ -80,7 +80,7 @@ const Checkout = () => {
         <Delivery />
       )}
 
-      <div className="flex flex-col gap-4 md:w-5/6 md:mx-auto">
+      <div className="flex flex-col gap-4 md:w-5/6 md:mx-auto my-4">
         <CartList products={cart} />
       </div>
 

@@ -14,7 +14,7 @@ const CartList = ({ products }) => {
             id={product.id}
             title={product.title}
             src={product.thumbnail}
-            price={product.price}
+            price={+(product.price * 5).toFixed(2)}
             quantity={product.quantity}
             removeFunction={() => removeFromCart(product.id)}
             addOne={() => increment(product.id)}

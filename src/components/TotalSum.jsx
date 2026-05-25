@@ -9,7 +9,7 @@ const TotalSum = () => {
       {' ' +
         cart
           .reduce((tot, obj) => {
-            return tot + obj.quantity * obj.price;
+            return tot + obj.quantity * obj.price * 5;
           }, 0)
           .toFixed(2) +
         ' '}

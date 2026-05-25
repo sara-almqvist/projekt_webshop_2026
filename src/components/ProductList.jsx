@@ -9,8 +9,8 @@ const ProductList = ({ data }) => {
     addToCart(newProduct);
   };
   return (
-    <>
-      <hr className="mt-4 mb-6 text-[#32033a]"></hr>
+    <div className="w-full">
+      <hr className="mt-4 mb-6 text-[#32033a] border-dotted"></hr>
       <div className="flex flex-wrap gap-4 justify-center items-center mb-4">
         {data.map((item) => (
           <Card
@@ -18,14 +18,14 @@ const ProductList = ({ data }) => {
             id={item.id}
             title={item.title}
             src={item.thumbnail}
-            price={item.price}
+            price={+(item.price * 5).toFixed(2)}
             description={item.description}
             handleClick={() => handleClick(item)}
           />
         ))}
       </div>
-      <hr className="mt-4 mb-6 text-[#32033a]"></hr>
-    </>
+      <hr className="mt-4 mb-6 text-[#32033a] border-dotted"></hr>
+    </div>
   );
 };
 
