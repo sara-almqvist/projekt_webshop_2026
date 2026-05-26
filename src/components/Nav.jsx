@@ -11,6 +11,9 @@ const Nav = () => {
         <Link to={'/categories'} className={styles.list}>
           Kategorier
         </Link>
+        <Link to={'/favorites'} className={styles.list}>
+          Favoriter
+        </Link>
         <Link to={'/checkout'} className={styles.list}>
           Till kassan
         </Link>

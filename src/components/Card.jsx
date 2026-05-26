@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import Button from './Button';
+import FavoriteButton from './FavoriteButton';
+import { useState } from 'react';
 
-const Card = ({ id, title, src, price, description, handleClick }) => {
+const Card = ({ id, title, src, price, description, handleClick, favvo }) => {
+  const [isClicked, setIsClicked] = useState(false);
+
   return (
     <>
       <div
@@ -19,8 +23,17 @@ const Card = ({ id, title, src, price, description, handleClick }) => {
             {description}
           </div>
         </div>
-        <p className="text-[#ed6b35] font-medium">{price} kr</p>
-        <Button text="Lägg i kundvagn" action={handleClick} />
+        <div className="flex flex-row gap-2 place-items-center self-center">
+          <p className="text-[#ed6b35] font-medium">{price} kr</p>
+          <FavoriteButton product={favvo} />
+        </div>
+        <Button
+          text={!isClicked ? 'Lägg i kundvagn' : 'Lagd i kundvagnen'}
+          action={() => {
+            handleClick();
+            setIsClicked(true);
+          }}
+        />
         <Link
           to={`/productpage/${id}`}
           className="text-[#ed6b35] font-medium hover:font-bold hover:text-[#db4e14]"

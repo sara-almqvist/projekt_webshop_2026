@@ -21,6 +21,7 @@ const ProductList = ({ data }) => {
             price={+(item.price * 5).toFixed(2)}
             description={item.description}
             handleClick={() => handleClick(item)}
+            favvo={item}
           />
         ))}
       </div>

@@ -1,4 +1,11 @@
-const OrderConfirmation = ({ orderid = 16282 }) => {
+import { useState } from 'react';
+
+const OrderConfirmation = () => {
+  function generate5DigitNumber() {
+    return Math.floor(Math.random() * 90000) + 10000;
+  }
+  const [orderNumber, setOrderNumber] = useState(() => generate5DigitNumber());
+
   return (
     <div className="text-[#ed6b35] flex flex-col gap-2 place-items-center">
       <h1 className="text-4xl font-semibold p-3">Tack för din beställning!</h1>
@@ -9,7 +16,7 @@ const OrderConfirmation = ({ orderid = 16282 }) => {
       <div className="w-5/6 my-4 ">
         <div className="bg-[#32033a]  size-60 md:size-85 m-auto relative">
           <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl font-semibold">
-            Ditt ordernummer: <br /> #{orderid}
+            Ditt ordernummer: <br /> #{orderNumber}
           </p>
           <img
             src="https://res.cloudinary.com/dfplwytwx/image/upload/v1779129897/satisfaction_n738xp.png"

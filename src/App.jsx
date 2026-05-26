@@ -15,99 +15,111 @@ import SearchProvider from './components/SearchProvider';
 import Contact from './views/Contact';
 import LayoutCheckOut from './views/LayoutCheckOut';
 import Delivery from './components/Delivery';
+import FavoriteProvider from './components/FavoriteProvider';
+import MyFavorites from './views/MyFavorites';
 
 function App() {
   return (
     <>
       <UserProvider>
-        <CartProvider>
-          <SearchProvider>
-            <BrowserRouter>
-              <Routes>
-                <Route
-                  index
-                  element={
-                    <LayoutShop>
-                      <Home />
-                    </LayoutShop>
-                  }
-                />
-                <Route
-                  path="/about"
-                  element={
-                    <LayoutShop>
-                      <About />
-                    </LayoutShop>
-                  }
-                />
-                <Route
-                  path="/categories/"
-                  element={
-                    <LayoutShop>
-                      <Categories />
-                    </LayoutShop>
-                  }
-                />
-                <Route
-                  path="/productpage/:id"
-                  element={
-                    <LayoutShop>
-                      <ProductPage />
-                    </LayoutShop>
-                  }
-                />
-                <Route
-                  path="/cart"
-                  element={
-                    <LayoutShop>
-                      <Cart />
-                    </LayoutShop>
-                  }
-                />
-                <Route
-                  path="/checkout"
-                  element={
-                    <LayoutCheckOut>
-                      <Checkout />
-                    </LayoutCheckOut>
-                  }
-                />
-                <Route
-                  path="/thanks"
-                  element={
-                    <LayoutShop>
-                      <OrderConfirmation />
-                    </LayoutShop>
-                  }
-                />
-                <Route
-                  path="/contact"
-                  element={
-                    <LayoutShop>
-                      <Contact />
-                    </LayoutShop>
-                  }
-                />
-                <Route
-                  path="/delivery"
-                  element={
-                    <LayoutCheckOut>
-                      <Delivery />
-                    </LayoutCheckOut>
-                  }
-                />
-                <Route
-                  path="/*"
-                  element={
-                    <LayoutShop>
-                      <WrongPath />
-                    </LayoutShop>
-                  }
-                />
-              </Routes>
-            </BrowserRouter>
-          </SearchProvider>
-        </CartProvider>
+        <FavoriteProvider>
+          <CartProvider>
+            <SearchProvider>
+              <BrowserRouter>
+                <Routes>
+                  <Route
+                    index
+                    element={
+                      <LayoutShop>
+                        <Home />
+                      </LayoutShop>
+                    }
+                  />
+                  <Route
+                    path="/about"
+                    element={
+                      <LayoutShop>
+                        <About />
+                      </LayoutShop>
+                    }
+                  />
+                  <Route
+                    path="/categories/"
+                    element={
+                      <LayoutShop>
+                        <Categories />
+                      </LayoutShop>
+                    }
+                  />
+                  <Route
+                    path="/productpage/:id"
+                    element={
+                      <LayoutShop>
+                        <ProductPage />
+                      </LayoutShop>
+                    }
+                  />
+                  <Route
+                    path="/cart"
+                    element={
+                      <LayoutShop>
+                        <Cart />
+                      </LayoutShop>
+                    }
+                  />
+                  <Route
+                    path="/checkout"
+                    element={
+                      <LayoutCheckOut>
+                        <Checkout />
+                      </LayoutCheckOut>
+                    }
+                  />
+                  <Route
+                    path="/thanks"
+                    element={
+                      <LayoutShop>
+                        <OrderConfirmation />
+                      </LayoutShop>
+                    }
+                  />
+                  <Route
+                    path="/contact"
+                    element={
+                      <LayoutShop>
+                        <Contact />
+                      </LayoutShop>
+                    }
+                  />
+                  <Route
+                    path="/delivery"
+                    element={
+                      <LayoutCheckOut>
+                        <Delivery />
+                      </LayoutCheckOut>
+                    }
+                  />
+                  <Route
+                    path="/favorites"
+                    element={
+                      <LayoutShop>
+                        <MyFavorites />
+                      </LayoutShop>
+                    }
+                  />
+                  <Route
+                    path="/*"
+                    element={
+                      <LayoutShop>
+                        <WrongPath />
+                      </LayoutShop>
+                    }
+                  />
+                </Routes>
+              </BrowserRouter>
+            </SearchProvider>
+          </CartProvider>
+        </FavoriteProvider>
       </UserProvider>
     </>
   );
