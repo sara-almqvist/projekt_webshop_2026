@@ -93,7 +93,9 @@ const ProductDetails = () => {
               <p>{product.description}</p>
             </div>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 place-items-center">
-              <p className="basis-1/6">{product.price} kr/st</p>
+              <p className="basis-1/6">
+                {+(product.price * 5).toFixed(2)} kr/st
+              </p>
               <div className="text-[#32033a] flex gap-4 items-center">
                 <label>
                   Ange önskat antal:

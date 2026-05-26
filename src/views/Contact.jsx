@@ -1,115 +1,65 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ContactForm from '../components/ContactForm';
 
 const Contact = () => {
-  const [userInput, setUserInput] = useState({
-    name: '',
-    message: '',
-    email: '',
-  });
+  const [contactName, setContactName] = useState('');
   const [isSubmit, setIsSubmit] = useState(false);
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    setUserInput({ ...userInput, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const parentFunction = (e) => {
+    setContactName(e);
     setIsSubmit(true);
-    console.log(`Namn: ${userInput.name}, Meddelande: ${userInput.message}`); //Send to supportsystem when availble
   };
 
   return (
-    <>
-      <div className="p-6 text-[#ed6b35] text-xl/8 ">
+    <div className="p-6 text-[#ed6b35] text-xl flex flex-col lg:flex-row gap-2">
+      <div className="basis-1/2 mb-4">
         <h2 className="text-5xl font-medium ">
           Så här kontaktar du{' '}
           <span className="font-serif italic font-semibold text-shadow-md">
             Allt & Lite Till
           </span>
-          :
         </h2>
-        <ul className="list-disc list-outside text-left text-[#32033a]">
-          <li>
-            <p>
-              Via telefon på nummer: 1234 5678. Vi svarar alla dagar mellan kl
-              9-18
-            </p>
-          </li>
-          <li>
-            <p>
-              Via mejl:{' '}
-              <a
-                href="mailto:info@alltochlitetill.se"
-                className="underline decoration-1"
-              >
-                info@alltochlitetill.se
-              </a>
-            </p>
-          </li>
-          <li>Via kontaktformulär</li>
-        </ul>
-
-        {isSubmit ? (
-          <Link to={'/categories'}>
-            <p className="text-xl bg-white w-1/2 mx-auto mt-6 p-2">
-              Tack för ditt meddelande {userInput.name}! <br />
-              Vi hör av oss så snart vi kan
-            </p>
-          </Link>
-        ) : (
-          <>
-            <h2 className="text-[#ed6b35] text-2xl font-semibold">
-              Kontaktformulär
-            </h2>
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col place-items-center bg-[#ed6b35] py-4 gap-2"
-            >
-              <label className="text-[#32033a] font-bold text-base px-4 w-full">
-                Namn:
-                <input
-                  type="text"
-                  value={userInput.name}
-                  name="name"
-                  onChange={handleChange}
-                  className="w-3/4 bg-white text-[#ed6b35] text-sm"
-                  autoFocus={true}
-                  required={true}
-                />
-              </label>
-              <label className="text-[#32033a] font-bold text-base px-4 w-full">
-                E-post:
-                <input
-                  type="email"
-                  value={userInput.email}
-                  name="email"
-                  onChange={handleChange}
-                  className="w-3/4 bg-white text-[#ed6b35] text-sm"
-                />
-              </label>
-              <label className="text-[#32033a] font-bold text-base px-4 w-full">
-                Ditt meddelande till oss:
-                <textarea
-                  placeholder="Skriv här"
-                  value={userInput.message}
-                  name="message"
-                  onChange={handleChange}
-                  rows={5}
-                  className="bg-white text-[#ed6b35] m-4 text-sm p-2 w-5/6 caret-[#32033a]"
-                  required={true}
-                ></textarea>
-              </label>
-              <input
-                type="submit"
-                className="text-[#32033a] bg-[#f18d64] hover:bg-[#db4e14] hover:cursor-pointer"
-              />
-            </form>
-          </>
-        )}
+        <div className="self-center border-2 border-dotted border-white py-2 px-6 rounded-xl text-lg">
+          <ul className="list-disc list-outside text-left text-[#32033a]">
+            <li className="p-4">
+              <p>
+                Via <span className="uppercase font-bold">telefon</span>: 1234
+                5678.{' '}
+              </p>
+              <p className="italic">Vi svarar alla dagar mellan kl 9-18</p>
+            </li>
+            <li className="p-4">
+              <p>
+                Via <span className="uppercase font-bold">mejl</span>:{' '}
+                <a
+                  href="mailto:info@alltochlitetill.se"
+                  className="underline decoration-1"
+                >
+                  info@alltochlitetill.se
+                </a>
+              </p>
+            </li>
+            <li className="p-4">
+              Via <span className="uppercase font-bold">kontaktformulär</span>
+            </li>
+          </ul>
+        </div>
       </div>
-    </>
+
+      {isSubmit ? (
+        <Link to={'/categories'}>
+          <p className="text-xl bg-white w-1/2 mx-auto mt-6 p-4">
+            Tack för ditt meddelande {contactName}! <br />
+            Vi hör av oss så snart vi kan
+          </p>
+        </Link>
+      ) : (
+        <>
+          <ContactForm updateParent={parentFunction} />
+        </>
+      )}
+    </div>
   );
 };
 
