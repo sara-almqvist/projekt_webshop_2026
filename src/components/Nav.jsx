@@ -1,5 +1,7 @@
 import styles from './Nav.module.css';
 import { Link } from 'react-router-dom';
+import { FolderHeart } from 'lucide-react';
+import FavoriteSymbol from './FavoriteSymbol';
 
 const Nav = () => {
   return (
@@ -12,7 +14,7 @@ const Nav = () => {
           Kategorier
         </Link>
         <Link to={'/favorites'} className={styles.list}>
-          Favoriter
+          <FavoriteSymbol />
         </Link>
         <Link to={'/checkout'} className={styles.list}>
           Till kassan
