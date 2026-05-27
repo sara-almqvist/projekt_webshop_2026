@@ -17,6 +17,7 @@ import LayoutCheckOut from './views/LayoutCheckOut';
 import Delivery from './components/Delivery';
 import FavoriteProvider from './components/FavoriteProvider';
 import MyFavorites from './views/MyFavorites';
+import UserAdminView from './views/UserAdminView';
 
 function App() {
   return (
@@ -104,6 +105,14 @@ function App() {
                     element={
                       <LayoutShop>
                         <MyFavorites />
+                      </LayoutShop>
+                    }
+                  />
+                  <Route
+                    path="/user"
+                    element={
+                      <LayoutShop>
+                        <UserAdminView />
                       </LayoutShop>
                     }
                   />

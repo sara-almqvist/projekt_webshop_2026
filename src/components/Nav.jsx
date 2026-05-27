@@ -1,7 +1,7 @@
 import styles from './Nav.module.css';
 import { Link } from 'react-router-dom';
-import { FolderHeart } from 'lucide-react';
 import FavoriteSymbol from './FavoriteSymbol';
+import AdminUser from './AdminUser';
 
 const Nav = () => {
   return (
@@ -13,12 +13,18 @@ const Nav = () => {
         <Link to={'/categories'} className={styles.list}>
           Kategorier
         </Link>
-        <Link to={'/favorites'} className={styles.list}>
-          <FavoriteSymbol />
-        </Link>
+
         <Link to={'/checkout'} className={styles.list}>
           Till kassan
         </Link>
+        <div className="flex flex-row justify-between gap-4">
+          <Link to={'/favorites'} className={styles.list}>
+            <FavoriteSymbol />
+          </Link>
+          <Link to={'/user'} className={styles.list}>
+            <AdminUser />
+          </Link>
+        </div>
       </ul>
     </>
   );

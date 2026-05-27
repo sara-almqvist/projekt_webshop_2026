@@ -6,7 +6,6 @@ const OrderForm = ({ modal, OnSubmit }) => {
   const [form, setForm] = useState(user);
 
   const handleChange = (e) => {
-    e.preventDefault();
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 

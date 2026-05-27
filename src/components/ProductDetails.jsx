@@ -4,6 +4,7 @@ import useCart from '../hooks/useCart';
 import Button from './Button';
 import RelatedProducts from './RelatedProducts';
 import formatSEK from '../format';
+import FavoriteButton from './FavoriteButton';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -83,7 +84,8 @@ const ProductDetails = () => {
       <>
         <div className="w-5/6 p-4 bg-[#ffffff]/50 text-[#ed6b35] text-xl mx-auto mt-4">
           <div className="flex flex-col gap-4">
-            <div className="self-end">
+            <div className="flex flex-row justify-between">
+              <FavoriteButton product={product} size="w-9 h-9" />
               <Button text={'X'} action={() => navigate(-1)} />
             </div>
             <h3 className="text-4xl text-[#32033a] font-semibold">

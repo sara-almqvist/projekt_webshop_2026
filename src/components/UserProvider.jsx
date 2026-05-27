@@ -20,8 +20,21 @@ function UserProvider({ children }) {
 
   const [user, setUser] = useState(status);
 
+  const clearUser = () => {
+    localStorage.removeItem('user');
+    setUser({
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: '',
+      address: '',
+      postCode: '',
+      city: '',
+    });
+  };
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, clearUser }}>
       {children}
     </UserContext.Provider>
   );
