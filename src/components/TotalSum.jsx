@@ -1,4 +1,5 @@
 import useCart from '../hooks/useCart';
+import formatSEK from '../format';
 
 const TotalSum = () => {
   const { cart } = useCart();
@@ -7,13 +8,11 @@ const TotalSum = () => {
     <div className="text-[#db4e14] bg-[#e6e6e6] rounded-xl text-xl font-bold p-4 shadow-lg">
       Totalt att betala:
       {' ' +
-        cart
-          .reduce((tot, obj) => {
+        formatSEK(
+          cart.reduce((tot, obj) => {
             return tot + obj.quantity * obj.price * 5;
           }, 0)
-          .toFixed(2) +
-        ' '}
-      kr
+        )}
     </div>
   );
 };

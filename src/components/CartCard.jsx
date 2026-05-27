@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from './Button';
+import formatSEK from '../format';
 
 const CartCard = ({
   id,
@@ -24,7 +25,7 @@ const CartCard = ({
 
           <div className="flex flex-col justify-evenly">
             <h3 className="text-[#32033a] font-bold sm:text-2xl">{title}</h3>
-            <p className="text-base"> Pris: {price} kr/st</p>
+            <p className="text-base"> Pris: {formatSEK(price)}/st</p>
           </div>
         </div>
 
@@ -37,8 +38,8 @@ const CartCard = ({
             <p>{quantity} st</p>
             <Button text=" + " action={addOne} />
           </div>
-          <p className="text-[#db4e14] font-bold">
-            Totalt: {(price * quantity).toFixed(2)} kr
+          <p className="text-[#db4e14] font-bold whitespace-nowrap">
+            Totalt: {formatSEK(price * quantity)}
           </p>
           <div className="text-sm">
             <Button text="Ta bort" action={removeFunction} />

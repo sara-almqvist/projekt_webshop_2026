@@ -1,5 +1,6 @@
 import Card from './Card';
 import useCart from '../hooks/useCart';
+import formatSEK from '../format';
 
 const ProductList = ({ data }) => {
   const { addToCart } = useCart();
@@ -18,7 +19,7 @@ const ProductList = ({ data }) => {
             id={item.id}
             title={item.title}
             src={item.thumbnail}
-            price={+(item.price * 5).toFixed(2)}
+            price={formatSEK(item.price * 5)}
             description={item.description}
             handleClick={() => handleClick(item)}
             favvo={item}

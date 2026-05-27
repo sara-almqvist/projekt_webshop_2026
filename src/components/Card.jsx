@@ -24,7 +24,7 @@ const Card = ({ id, title, src, price, description, handleClick, favvo }) => {
           </div>
         </div>
         <div className="flex flex-row gap-2 place-items-center self-center">
-          <p className="text-[#ed6b35] font-medium">{price} kr</p>
+          <p className="text-[#ed6b35] font-medium">{price}</p>
           <FavoriteButton product={favvo} />
         </div>
         <Button
