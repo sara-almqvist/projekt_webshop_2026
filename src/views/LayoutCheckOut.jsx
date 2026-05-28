@@ -3,6 +3,8 @@ import Footer from '../components/Footer';
 import useCart from '../hooks/useCart';
 import Nav from '../components/Nav';
 
+//Layout for checkout, only show Nav when cart is empty
+
 const LayoutCheckOut = ({ children }) => {
   const { cart } = useCart();
   return (

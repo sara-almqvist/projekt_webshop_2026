@@ -4,7 +4,7 @@ import useSearch from '../hooks/useSearch';
 import useUser from '../hooks/useUser';
 
 const Home = () => {
-  const { isSearched } = useSearch();
+  const { isSearched } = useSearch(); //Know if searchfield is used for the moment or not
   const { user } = useUser();
 
   return (

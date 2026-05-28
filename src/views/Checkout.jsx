@@ -38,47 +38,54 @@ const Checkout = () => {
 
   return (
     <div className="flex flex-col gap-4 mt-4">
-      {cart.length === 0 && (
-        <div>
-          <p className="text-[#ed6b35] text-2xl font-semibold p-7 ">
-            Oops... Du behöver lägga något i kundvagnen innan du betalar i
-            kassan
-          </p>
-          <InspirationProducts />
-        </div>
-      )}
-
-      {user.firstName !== '' ? (
-        <div className="my-4">
-          {cart.length !== 0 && (
-            <h2 className="text-[#ed6b35] text-2xl font-semibold p-3">
-              Kontrollera innehållet i din kundvagn, {user.firstName}
-            </h2>
-          )}
-
+      {
+        /*Check if cart is empty*/
+        cart.length === 0 && (
           <div>
-            <Button
-              text={`Är du inte ${user.firstName}, eller vill du ändra leveransadress?`}
-              action={() => {
-                setModalOpen(true);
-              }}
-            />
+            <p className="text-[#ed6b35] text-2xl font-semibold p-7 ">
+              Oops... Du behöver lägga något i kundvagnen innan du betalar i
+              kassan
+            </p>
+            <InspirationProducts />
           </div>
-          <dialog
-            ref={dialogRef}
-            onClose={() => setModalOpen(false)}
-            className="p-4 fixed m-auto sm:w-1/2 max-w-[600px]"
-          >
-            <h2 className="text-[#ed6b35] text-2xl font-semibold">
-              Kunduppgifter:
-            </h2>
-            <OrderForm modal={() => setModalOpen(false)} />
-            <Button text={'Stäng rutan'} action={() => setModalOpen(false)} />
-          </dialog>
-        </div>
-      ) : (
-        <Delivery />
-      )}
+        )
+      }
+
+      {
+        /*Check if we have user-information */
+        user.firstName !== '' ? (
+          <div className="my-4">
+            {cart.length !== 0 && (
+              <h2 className="text-[#ed6b35] text-2xl font-semibold p-3">
+                Kontrollera innehållet i din kundvagn, {user.firstName}
+              </h2>
+            )}
+
+            <div>
+              <Button
+                text={`Är du inte ${user.firstName}, eller vill du ändra leveransadress?`}
+                action={() => {
+                  setModalOpen(true);
+                }}
+              />
+            </div>
+            <dialog
+              ref={dialogRef}
+              onClose={() => setModalOpen(false)}
+              className="p-4 fixed m-auto sm:w-1/2 max-w-[600px]"
+            >
+              <h2 className="text-[#ed6b35] text-2xl font-semibold">
+                Kunduppgifter:
+              </h2>
+              <OrderForm modal={() => setModalOpen(false)} />
+              <Button text={'Stäng rutan'} action={() => setModalOpen(false)} />
+            </dialog>
+          </div>
+        ) : (
+          /*Take user's contactinformation for delivery */
+          <Delivery />
+        )
+      }
 
       <div className="flex flex-col gap-4 md:w-5/6 md:mx-auto my-4">
         <CartList products={cart} />

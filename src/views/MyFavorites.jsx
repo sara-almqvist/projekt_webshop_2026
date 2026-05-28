@@ -20,6 +20,7 @@ const MyFavorites = () => {
       {favoriteList.length > 0 ? (
         <ProductList data={favoriteList} />
       ) : (
+        //Show some inspiration if user hasn't choosen any favorites yet. IDEA: save latest search/category-click in global state or sessionstorage and use to show related products
         <RelatedProducts category={'skin-care'} id={1} />
       )}
     </div>

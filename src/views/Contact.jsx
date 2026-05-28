@@ -13,10 +13,10 @@ const Contact = () => {
 
   return (
     <div className="p-6 text-[#ed6b35] text-xl flex flex-col lg:flex-row gap-2">
-      <div className="basis-1/2 mb-4">
-        <h2 className="text-5xl font-medium ">
+      <div className="basis-1/2 mb-4 flex flex-col justify-evenly">
+        <h2 className="text-4xl font-medium ">
           Så här kontaktar du{' '}
-          <span className="font-serif italic font-semibold text-shadow-md">
+          <span className="font-serif italic font-semibold text-shadow-md text-5xl whitespace-nowrap">
             Allt & Lite Till
           </span>
         </h2>

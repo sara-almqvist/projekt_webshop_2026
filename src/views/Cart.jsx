@@ -35,7 +35,6 @@ const Cart = () => {
             Här hittar du något att fylla den med!
           </Link>
           <InspirationProducts />
-          <br />
         </div>
       )}
     </>

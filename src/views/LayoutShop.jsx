@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import CartSymbol from '../components/CartSymbol';
+
 //Standardlayout to wrapp webbsitecontent
+
 const LayoutShop = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
