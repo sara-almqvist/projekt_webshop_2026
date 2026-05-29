@@ -9,6 +9,7 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
   const [isFetched, setIsFetched] = useState(false); //för att undvika anrop vid omladdning eller tomt sökfält
   const { isSearched, setIsSearched } = useSearch();
   const [localSearch, setLocalSearch] = useState(isSearched);
+  const [showError, setShowError] = useState(false);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -38,6 +39,7 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
         setLocalSearch(true);
       } catch (error) {
         console.error('Något gick fel', error);
+        setShowError(true);
       }
     }, 1000);
 
@@ -79,6 +81,12 @@ const Search = ({ title = 'Vad behöver du idag?' }) => {
             </div>
           )
         ))}
+      {showError && (
+        <div className="text-xl text-[#ed6b35] bg-white w-1/2 mx-auto mt-6 p-4">
+          Vi har lite problem just nu. Vänligen försök igen vid ett senare
+          tillfälle. Tack för din förståelse!
+        </div>
+      )}
     </>
   );
 };
