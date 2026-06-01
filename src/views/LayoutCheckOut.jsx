@@ -17,9 +17,12 @@ const LayoutCheckOut = ({ children }) => {
             className="w-full"
           />
         </Link>
-        <h1 className="basis-2/3 text-white text-6xl font-medium hidden sm:block">
-          Allt & Lite Till
-        </h1>
+        <Link
+          to={'/'}
+          className="basis-2/3 text-white text-6xl font-medium hidden sm:block"
+        >
+          <h1>Allt & Lite Till</h1>
+        </Link>
       </div>
       {cart.length === 0 && <Nav />}
       <main className="flex-grow">{children}</main>

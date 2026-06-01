@@ -1,16 +1,8 @@
 import OrderForm from './OrderForm';
 import { useNavigate } from 'react-router-dom';
-import useUser from '../hooks/useUser';
 
 const Delivery = () => {
   const navigate = useNavigate();
-  const { user } = useUser();
-
-  const handleSubmit = () => {
-    if (user.address !== '') {
-      navigate('/checkout');
-    }
-  };
 
   return (
     <>
@@ -18,7 +10,7 @@ const Delivery = () => {
         Fyll i dina leveransuppgifter
       </h3>
       <div className=" w-full md:w-5/6 m-auto mb-8">
-        <OrderForm OnSubmit={handleSubmit} />
+        <OrderForm OnSubmit={() => navigate('/checkout')} />
       </div>
     </>
   );
