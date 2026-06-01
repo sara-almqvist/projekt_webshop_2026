@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Copyright } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -18,6 +19,10 @@ const Footer = () => {
               varor till alla
             </p>
           </Link>
+        </div>
+        <div className="text-white/50 text-xs flex flex-row place-items-center sm:self-end">
+          <Copyright size={20} />
+          <span>Copyright S. Almqvist 2026</span>
         </div>
       </footer>
     </>
