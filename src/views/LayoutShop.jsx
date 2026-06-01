@@ -16,9 +16,12 @@ const LayoutShop = ({ children }) => {
             className="w-full"
           />
         </Link>
-        <h1 className="sm:basis-2/3 text-white text-6xl font-medium hidden sm:block ">
-          Allt & Lite Till
-        </h1>
+        <Link
+          to={'/'}
+          className="sm:basis-2/3 text-white text-6xl font-medium hidden sm:block"
+        >
+          <h1>Allt & Lite Till</h1>
+        </Link>
         <Link to={'/cart'} className="max-w-40">
           <CartSymbol />
         </Link>
