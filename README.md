@@ -23,6 +23,10 @@ Applikationens innehåll:
 
 Jag använder `useEffect` med `setTimer` som debounce-funktion i komponenten Search.jsx. Detta för att inte göra multipla API-anrop innan användaren hunnit skriva klart i sökfältet. För att undvika anrop vid tomt sökfält eller omladdning används en `useState` (isFetched).
 
+https://github.com/user-attachments/assets/ad45b298-d139-4ebe-a94a-075f2f8db614
+
+
+
 Även i komponenten ProductDetails används `useEffect` med `setTimer` då API-anrop efter en enskild-produkt görs på denna sida.
 RelatedProducts, InspirationProducts och Categories gör också API-anrop och har samma uppbyggnad av `useEffect` med `setTimer`.
 
