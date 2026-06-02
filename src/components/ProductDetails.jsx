@@ -71,7 +71,10 @@ const ProductDetails = () => {
           {`Du har lagt ${orderQuantity} st av ${product.title} i kundvagnen!`}
         </p>
         <div className="flex flex-row flex-nowrap gap-4 text-xl justify-center">
-          <Button text={'Handla vidare'} action={() => navigate(-1)} />
+          <Button
+            text={'Handla vidare'}
+            action={() => navigate('/categories')}
+          />
           <Link
             to={'/checkout'}
             className="bg-[#32033a] p-2 rounded-full text-white font-bold hover:bg-[#db4e14] shadow-xl shadow-grey-500/50 my-2 cursor-pointer"
@@ -85,7 +88,11 @@ const ProductDetails = () => {
         <div className="w-5/6 p-4 bg-[#ffffff]/50 text-[#ed6b35] text-xl mx-auto mt-4">
           <div className="flex flex-col gap-4">
             <div className="flex flex-row justify-between">
-              <FavoriteButton product={product} size="w-9 h-9" />
+              <FavoriteButton
+                key={product.id}
+                product={product}
+                size="w-9 h-9"
+              />
               <Button text={'X'} action={() => navigate(-1)} />
             </div>
             <h3 className="text-4xl text-[#32033a] font-semibold">
@@ -96,7 +103,7 @@ const ProductDetails = () => {
               <p>{product.description}</p>
             </div>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 place-items-center">
-              <p className="basis-1/6">{formatSEK(product.price * 5)}st</p>
+              <p className="basis-1/6">{formatSEK(product.price * 5)}/st</p>
               <div className="text-[#32033a] flex gap-4 items-center">
                 <label>
                   Ange önskat antal:
