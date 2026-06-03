@@ -13,7 +13,7 @@ const ContactForm = ({ updateParent }) => {
     message: false,
   }); //Keep track of visited inputfields
 
-  //Validationrules (return true och false)
+  //Validationrules (return true or false)
   const isNameValid = form.name.includes(' ') && form.name.trim().length >= 2;
   const isEmailValid = form.email.includes('@') && form.email.includes('.');
   const isMessageValid =
@@ -72,7 +72,7 @@ const ContactForm = ({ updateParent }) => {
             className={getInputClass(isNameValid, touched.name)}
             placeholder="Ditt för- och efternamn"
           />
-          {/* Grön bock om det är rätt */}
+          {/* Green check mark if correct */}
           {touched.name && isNameValid && (
             <span className="absolute right-3 top-3 text-green-600 font-bold">
               ✓
@@ -84,7 +84,7 @@ const ContactForm = ({ updateParent }) => {
         )}
       </div>
 
-      {/*E-post-field*/}
+      {/*Email-field*/}
       <div className="flex flex-col gap-1">
         <label className="text-sm font-medium text-[#ed6b35]">E-post</label>
         <div className="relative">
@@ -97,7 +97,7 @@ const ContactForm = ({ updateParent }) => {
             className={getInputClass(isEmailValid, touched.email)}
             placeholder="Din e-postadress"
           />
-          {/* Grön bock om det är rätt */}
+          {/* Green check mark if correct */}
           {touched.email && isEmailValid && (
             <span className="absolute right-3 top-3 text-green-600 font-bold">
               ✓
@@ -124,7 +124,7 @@ const ContactForm = ({ updateParent }) => {
             placeholder="Skriv här..."
             rows={5}
           ></textarea>
-          {/* Grön bock om det är rätt */}
+          {/* Green check mark if correct */}
           {touched.message && isMessageValid && (
             <span className="absolute right-3 top-3 text-green-600 font-bold">
               ✓
