@@ -26,7 +26,7 @@ function App() {
         <FavoriteProvider>
           <CartProvider>
             <SearchProvider>
-              <BrowserRouter>
+              <BrowserRouter basename={import.meta.env.BASE_URL}>
                 <Routes>
                   <Route
                     index
